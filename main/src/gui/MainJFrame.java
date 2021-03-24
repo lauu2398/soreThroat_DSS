@@ -5,6 +5,8 @@
  */
 package gui;
 
+import javax.swing.JTabbedPane;
+
 /**
  *
  * @author Legion
@@ -38,6 +40,17 @@ public class MainJFrame extends javax.swing.JFrame {
         abscessPanel = new javax.swing.JTabbedPane();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+
+        tabbedPane.addChangeListener(new javax.swing.event.ChangeListener() {
+            public void stateChanged(javax.swing.event.ChangeEvent evt) {
+                tabbedPaneStateChanged(evt);
+            }
+        });
+        tabbedPane.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                tabbedPaneFocusGained(evt);
+            }
+        });
 
         javax.swing.GroupLayout DiagnosisPanelLayout = new javax.swing.GroupLayout(DiagnosisPanel);
         DiagnosisPanel.setLayout(DiagnosisPanelLayout);
@@ -85,6 +98,16 @@ public class MainJFrame extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void tabbedPaneFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_tabbedPaneFocusGained
+       System.out.println("Focus gained");
+    }//GEN-LAST:event_tabbedPaneFocusGained
+
+    private void tabbedPaneStateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_tabbedPaneStateChanged
+        JTabbedPane sourceTabbedPane = (JTabbedPane) evt.getSource();
+        int index = sourceTabbedPane.getSelectedIndex();
+        System.out.println("Tab changed to: " + sourceTabbedPane.getTitleAt(index));        // TODO add your handling code here:
+    }//GEN-LAST:event_tabbedPaneStateChanged
 
     /**
      * @param args the command line arguments

@@ -36,6 +36,8 @@ public class PatientInfoPanel extends javax.swing.JPanel {
         exhudateYesButton = new javax.swing.JRadioButton();
         exhudateNoButton = new javax.swing.JRadioButton();
         jLabel1 = new javax.swing.JLabel();
+        YesButton = new javax.swing.JRadioButton();
+        exhudateNoButton1 = new javax.swing.JRadioButton();
 
         setLayout(new java.awt.BorderLayout());
 
@@ -80,6 +82,12 @@ public class PatientInfoPanel extends javax.swing.JPanel {
 
         jLabel1.setText("Does the patient present exhudate?");
 
+        exudateGroup.add(YesButton);
+        YesButton.setText("Yes");
+
+        exudateGroup.add(exhudateNoButton1);
+        exhudateNoButton1.setText("No");
+
         javax.swing.GroupLayout questionsPanelsLayout = new javax.swing.GroupLayout(questionsPanels);
         questionsPanels.setLayout(questionsPanelsLayout);
         questionsPanelsLayout.setHorizontalGroup(
@@ -95,7 +103,11 @@ public class PatientInfoPanel extends javax.swing.JPanel {
                         .addComponent(exhudateYesButton)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(exhudateNoButton))
-                    .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, 102, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, 102, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(questionsPanelsLayout.createSequentialGroup()
+                        .addComponent(YesButton)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(exhudateNoButton1)))
                 .addContainerGap(106, Short.MAX_VALUE))
         );
         questionsPanelsLayout.setVerticalGroup(
@@ -110,7 +122,11 @@ public class PatientInfoPanel extends javax.swing.JPanel {
                     .addComponent(exhudateYesButton)
                     .addComponent(exhudateNoButton)
                     .addComponent(jLabel1))
-                .addContainerGap(298, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(questionsPanelsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(exhudateNoButton1)
+                    .addComponent(YesButton))
+                .addContainerGap(264, Short.MAX_VALUE))
         );
 
         add(questionsPanels, java.awt.BorderLayout.CENTER);
@@ -122,8 +138,10 @@ public class PatientInfoPanel extends javax.swing.JPanel {
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JRadioButton YesButton;
     private javax.swing.JPanel buttonPanel;
     private javax.swing.JRadioButton exhudateNoButton;
+    private javax.swing.JRadioButton exhudateNoButton1;
     private javax.swing.JRadioButton exhudateYesButton;
     private javax.swing.ButtonGroup exudateGroup;
     private javax.swing.JLabel feverLabel;
