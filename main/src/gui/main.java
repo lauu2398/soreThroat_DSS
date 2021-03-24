@@ -5,7 +5,7 @@
  */
 package gui;
 
-import net.sf.clipsrules.jni.Environment;
+import net.sf.clipsrules.jni.*;
 
 /**
  *
@@ -17,20 +17,18 @@ public class main {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        
+
         // TODO code application logic here
-        
-		Environment clips;
-		clips = new Environment();
-		try {
-					
-				clips.load("inferenceEngine_ThroatPath.clp");
-				clips.reset();
-				clips.run();				
-		}
-		catch (Exception e) { 
-			e.printStackTrace(); 
-		}
+        Environment clips;
+        clips = new Environment();
+        try {
+
+            clips.load("inferenceEngine_ThroatPath.clp");
+            clips.reset();
+            clips.run();
+        } catch (CLIPSException e) {
+            e.printStackTrace();
+        }
     }
-    
+
 }
