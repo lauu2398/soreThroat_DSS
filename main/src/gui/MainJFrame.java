@@ -33,6 +33,8 @@ public class MainJFrame extends javax.swing.JFrame {
         DiagnosisPanel = new javax.swing.JPanel();
         infoTabbedPanel = new javax.swing.JTabbedPane();
         viralPahel = new javax.swing.JPanel();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        jTextArea1 = new javax.swing.JTextArea();
         strepPanel = new javax.swing.JTabbedPane();
         monoPanel = new javax.swing.JTabbedPane();
         cancerPanel = new javax.swing.JTabbedPane();
@@ -56,32 +58,43 @@ public class MainJFrame extends javax.swing.JFrame {
         DiagnosisPanel.setLayout(DiagnosisPanelLayout);
         DiagnosisPanelLayout.setHorizontalGroup(
             DiagnosisPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 398, Short.MAX_VALUE)
+            .addGap(0, 565, Short.MAX_VALUE)
         );
         DiagnosisPanelLayout.setVerticalGroup(
             DiagnosisPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 274, Short.MAX_VALUE)
+            .addGap(0, 531, Short.MAX_VALUE)
         );
 
         tabbedPane.addTab("diagnosis", DiagnosisPanel);
+
+        jTextArea1.setColumns(20);
+        jTextArea1.setRows(5);
+        jTextArea1.setText("Pharyngitis, or sore throat, is swelling, discomfort, pain, or scratchiness in the throat at, \nand just below the tonsils.\n\nRisk Factors:\n\t- Cigarette smoking.\n\t- Lower immunity: stress, recent illness, chronic health condition, ...\n\t- Working in daycare centers or schools.\n\t- Winter.\n\t- Allergies.\n\n");
+        jScrollPane1.setViewportView(jTextArea1);
 
         javax.swing.GroupLayout viralPahelLayout = new javax.swing.GroupLayout(viralPahel);
         viralPahel.setLayout(viralPahelLayout);
         viralPahelLayout.setHorizontalGroup(
             viralPahelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 396, Short.MAX_VALUE)
+            .addGroup(viralPahelLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 465, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(85, Short.MAX_VALUE))
         );
         viralPahelLayout.setVerticalGroup(
             viralPahelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 248, Short.MAX_VALUE)
+            .addGroup(viralPahelLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 384, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(108, Short.MAX_VALUE))
         );
 
         infoTabbedPanel.addTab("viral", viralPahel);
-        infoTabbedPanel.addTab("tab2", strepPanel);
-        infoTabbedPanel.addTab("tab3", monoPanel);
-        infoTabbedPanel.addTab("tab4", cancerPanel);
-        infoTabbedPanel.addTab("tab5", bodyPanel);
-        infoTabbedPanel.addTab("tab6", abscessPanel);
+        infoTabbedPanel.addTab("mono", strepPanel);
+        infoTabbedPanel.addTab("strep", monoPanel);
+        infoTabbedPanel.addTab("pharyn", cancerPanel);
+        infoTabbedPanel.addTab("peri", bodyPanel);
+        infoTabbedPanel.addTab("fore", abscessPanel);
 
         tabbedPane.addTab("info", infoTabbedPanel);
 
@@ -150,6 +163,8 @@ public class MainJFrame extends javax.swing.JFrame {
     private javax.swing.JTabbedPane bodyPanel;
     private javax.swing.JTabbedPane cancerPanel;
     private javax.swing.JTabbedPane infoTabbedPanel;
+    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JTextArea jTextArea1;
     private javax.swing.JTabbedPane monoPanel;
     private javax.swing.JTabbedPane strepPanel;
     private javax.swing.JTabbedPane tabbedPane;
