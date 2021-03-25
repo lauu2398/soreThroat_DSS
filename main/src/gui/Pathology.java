@@ -19,12 +19,70 @@ import static jdk.nashorn.internal.objects.NativeDebug.map;
  */
 public class Pathology implements Comparable<Pathology> {
 
+  
     private String name;
     private Float score;
-
-
-    HashMap<String, String> scorePathology = new HashMap<String, String>();
+    /*
+    private float score_mono;
+    private float score_viral;
+    private float score_strep;
+    private float score_cancer;
+    private float score_abcess;
+    private float score_body;
+    private boolean fever_computed;
+    private boolean exudate_computed;
+    private boolean s_node_computed;
+    private boolean cough_computed;
+    private boolean fatigue_computed;
+    private boolean swallowing_computed;
+    private boolean s_spleen_computed;
+    private boolean s_tonsils_computed;
+     */
+    //disease, recomendation
     // no me deja inicializar aqui el mapa
+
+    HashMap<String, String> recomendationMap; 
+
+    public Pathology(String name, Float score, HashMap<String, String> recomendationMap) {
+        this.name = name;
+        this.score = score;
+        this.recomendationMap = recomendationMap;
+    }
+
+    Pathology() {
+        this.name = "pathology";
+        this.score = 0f;
+        this.recomendationMap=recomendationMap;
+       }
+
+ 
+   
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public Float getScore() {
+        return score;
+    }
+
+    public void setScore(Float score) {
+        this.score = score;
+    }
+
+    public HashMap<String, String> getRecomendationMap() {
+        return recomendationMap;
+    }
+
+    public void setRecomendationMap(HashMap<String, String> recomendationMap) {
+        this.recomendationMap = recomendationMap;
+    }
+
+ 
+
 
     @Override
     public int compareTo(Pathology pathology) {
@@ -57,5 +115,5 @@ public class Pathology implements Comparable<Pathology> {
         hash = 13 * hash + Objects.hashCode(this.score);
         return hash;
     }
-    //sobreescribir equals por si lo necesitabos y hashcode
+    
 }

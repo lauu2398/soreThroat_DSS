@@ -5,6 +5,8 @@
  */
 package gui;
 
+import java.util.List;
+
 /**
  *
  * @author laura
@@ -20,13 +22,10 @@ public class Patient {
     private String swallowing;
     private String s_spleen;
     private String s_tonsils;
-  
+    private List<Pathology> pathology; 
 
-    public Patient(String name, String fever, String exudate, String s_node, String cough, String fatigue,
-            String swallowing, String s_spleen, String s_tonsils, float score_mono, float score_viral,
-            float score_strep, float score_cancer, float score_abcess, float score_body,
-            boolean fever_computed, boolean exudate_computed, boolean s_node_computed, boolean cough_computed,
-            boolean fatigue_computed, boolean swallowing_computed, boolean s_spleen_computed, boolean s_tonsils_computed) {
+    public Patient(String name, String fever, String exudate, String s_node, String cough, 
+            String fatigue, String swallowing, String s_spleen, String s_tonsils, List<Pathology> pathology) {
         this.name = name;
         this.fever = fever;
         this.exudate = exudate;
@@ -36,9 +35,11 @@ public class Patient {
         this.swallowing = swallowing;
         this.s_spleen = s_spleen;
         this.s_tonsils = s_tonsils;
+        this.pathology = pathology;
+    }
     
 
-    }
+  
 
     public String getName() {
         return name;
@@ -111,4 +112,13 @@ public class Patient {
     public void setS_tonsils(String s_tonsils) {
         this.s_tonsils = s_tonsils;
     }
+
+    public List<Pathology> getPathology() {
+        return pathology;
+    }
+
+    public void setPathology(List<Pathology> pathology) {
+        this.pathology = pathology;
+    }
+    
 }
