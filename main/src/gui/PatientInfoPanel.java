@@ -28,6 +28,12 @@ public class PatientInfoPanel extends javax.swing.JPanel {
     private void initComponents() {
 
         exudateGroup = new javax.swing.ButtonGroup();
+        nodesGroup = new javax.swing.ButtonGroup();
+        coughGroup = new javax.swing.ButtonGroup();
+        fatigueGroup = new javax.swing.ButtonGroup();
+        swallowGroup = new javax.swing.ButtonGroup();
+        spleenGroup = new javax.swing.ButtonGroup();
+        tonsilsGroup = new javax.swing.ButtonGroup();
         buttonPanel = new javax.swing.JPanel();
         nextButton = new javax.swing.JButton();
         questionsPanels = new javax.swing.JPanel();
@@ -35,9 +41,27 @@ public class PatientInfoPanel extends javax.swing.JPanel {
         jComboBox1 = new javax.swing.JComboBox<>();
         exhudateYesButton = new javax.swing.JRadioButton();
         exhudateNoButton = new javax.swing.JRadioButton();
+        exhudateLabel = new javax.swing.JLabel();
+        nodesYesButton = new javax.swing.JRadioButton();
+        nodesNoButton = new javax.swing.JRadioButton();
+        nodesLabel = new javax.swing.JLabel();
+        coughYesButton = new javax.swing.JRadioButton();
+        coughNoButton = new javax.swing.JRadioButton();
+        coughLabel = new javax.swing.JLabel();
+        fatigueLabel = new javax.swing.JLabel();
+        swallowLabel = new javax.swing.JLabel();
+        tonsilsLabel = new javax.swing.JLabel();
+        fatigueYesButton = new javax.swing.JRadioButton();
+        fatigueNoButton = new javax.swing.JRadioButton();
+        swallowYesButton = new javax.swing.JRadioButton();
+        swallowNoButton = new javax.swing.JRadioButton();
+        spleenYesButton = new javax.swing.JRadioButton();
+        spleenNoButton = new javax.swing.JRadioButton();
+        tonsilsYesButton = new javax.swing.JRadioButton();
+        tonsilsNoButton = new javax.swing.JRadioButton();
+        spleenLabel = new javax.swing.JLabel();
+        jPanel1 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
-        YesButton = new javax.swing.JRadioButton();
-        exhudateNoButton1 = new javax.swing.JRadioButton();
 
         setLayout(new java.awt.BorderLayout());
 
@@ -56,7 +80,7 @@ public class PatientInfoPanel extends javax.swing.JPanel {
         buttonPanelLayout.setHorizontalGroup(
             buttonPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, buttonPanelLayout.createSequentialGroup()
-                .addContainerGap(504, Short.MAX_VALUE)
+                .addContainerGap(683, Short.MAX_VALUE)
                 .addComponent(nextButton)
                 .addContainerGap())
         );
@@ -65,89 +89,271 @@ public class PatientInfoPanel extends javax.swing.JPanel {
             .addGroup(buttonPanelLayout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(nextButton)
-                .addContainerGap(12, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         add(buttonPanel, java.awt.BorderLayout.PAGE_END);
 
+        questionsPanels.setBackground(new java.awt.Color(180, 220, 210));
+        questionsPanels.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED, java.awt.Color.white, java.awt.Color.white, java.awt.Color.white, java.awt.Color.white));
+
+        feverLabel.setBackground(new java.awt.Color(180, 210, 210));
+        feverLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         feverLabel.setText("Does the patient have fever?");
 
         jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "High", "Mild", "No" }));
+        jComboBox1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jComboBox1ActionPerformed(evt);
+            }
+        });
 
+        exhudateYesButton.setBackground(new java.awt.Color(180, 220, 210));
         exudateGroup.add(exhudateYesButton);
         exhudateYesButton.setText("Yes");
 
+        exhudateNoButton.setBackground(new java.awt.Color(180, 220, 210));
         exudateGroup.add(exhudateNoButton);
         exhudateNoButton.setText("No");
 
-        jLabel1.setText("Does the patient present exhudate?");
+        exhudateLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        exhudateLabel.setText("Does the patient present exhudate?");
 
-        exudateGroup.add(YesButton);
-        YesButton.setText("Yes");
+        nodesYesButton.setBackground(new java.awt.Color(180, 220, 210));
+        nodesGroup.add(nodesYesButton);
+        nodesYesButton.setText("Yes");
 
-        exudateGroup.add(exhudateNoButton1);
-        exhudateNoButton1.setText("No");
+        nodesNoButton.setBackground(new java.awt.Color(180, 220, 210));
+        nodesGroup.add(nodesNoButton);
+        nodesNoButton.setText("No");
+
+        nodesLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        nodesLabel.setText("Does the patient have swollen nodes?");
+
+        coughYesButton.setBackground(new java.awt.Color(180, 220, 210));
+        coughGroup.add(coughYesButton);
+        coughYesButton.setText("Yes");
+
+        coughNoButton.setBackground(new java.awt.Color(180, 220, 210));
+        coughGroup.add(coughNoButton);
+        coughNoButton.setText("No");
+
+        coughLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        coughLabel.setText("Does the patient have cough?");
+
+        fatigueLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        fatigueLabel.setText("Does the patient have fatigue?");
+
+        swallowLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        swallowLabel.setText("Does the patient have trouble swallowing?");
+
+        tonsilsLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        tonsilsLabel.setText("Does the patien have swollen tonsils?");
+
+        fatigueYesButton.setBackground(new java.awt.Color(180, 220, 210));
+        fatigueGroup.add(fatigueYesButton);
+        fatigueYesButton.setText("Yes");
+
+        fatigueNoButton.setBackground(new java.awt.Color(180, 220, 210));
+        fatigueGroup.add(fatigueNoButton);
+        fatigueNoButton.setText("No");
+
+        swallowYesButton.setBackground(new java.awt.Color(180, 220, 210));
+        swallowGroup.add(swallowYesButton);
+        swallowYesButton.setText("Yes");
+
+        swallowNoButton.setBackground(new java.awt.Color(180, 220, 210));
+        swallowGroup.add(swallowNoButton);
+        swallowNoButton.setText("No");
+
+        spleenYesButton.setBackground(new java.awt.Color(180, 220, 210));
+        spleenGroup.add(spleenYesButton);
+        spleenYesButton.setText("Yes");
+
+        spleenNoButton.setBackground(new java.awt.Color(180, 220, 210));
+        spleenGroup.add(spleenNoButton);
+        spleenNoButton.setText("No");
+
+        tonsilsYesButton.setBackground(new java.awt.Color(180, 220, 210));
+        tonsilsGroup.add(tonsilsYesButton);
+        tonsilsYesButton.setText("Yes");
+
+        tonsilsNoButton.setBackground(new java.awt.Color(180, 220, 210));
+        tonsilsGroup.add(tonsilsNoButton);
+        tonsilsNoButton.setText("No");
+
+        spleenLabel.setText("Does the patient have a swollen spleen?");
+
+        jPanel1.setBackground(new java.awt.Color(210, 240, 240));
+
+        jLabel1.setFont(new java.awt.Font("Comic Sans MS", 1, 24)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(100, 100, 100));
+        jLabel1.setText("Patient's regarding information:");
+        jLabel1.setAutoscrolls(true);
+
+        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
+        jPanel1.setLayout(jPanel1Layout);
+        jPanel1Layout.setHorizontalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGap(53, 53, 53)
+                .addComponent(jLabel1)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+        jPanel1Layout.setVerticalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jLabel1)
+                .addContainerGap())
+        );
 
         javax.swing.GroupLayout questionsPanelsLayout = new javax.swing.GroupLayout(questionsPanels);
         questionsPanels.setLayout(questionsPanelsLayout);
         questionsPanelsLayout.setHorizontalGroup(
             questionsPanelsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(questionsPanelsLayout.createSequentialGroup()
-                .addGap(47, 47, 47)
-                .addGroup(questionsPanelsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(feverLabel)
-                    .addComponent(jLabel1))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 105, Short.MAX_VALUE)
-                .addGroup(questionsPanelsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGap(75, 75, 75)
+                .addGroup(questionsPanelsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(spleenLabel, javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(tonsilsLabel, javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(swallowLabel, javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(feverLabel, javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(exhudateLabel, javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(nodesLabel, javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(coughLabel, javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(fatigueLabel, javax.swing.GroupLayout.Alignment.LEADING))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 209, Short.MAX_VALUE)
+                .addGroup(questionsPanelsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(questionsPanelsLayout.createSequentialGroup()
-                        .addComponent(exhudateYesButton)
+                        .addComponent(swallowYesButton)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(exhudateNoButton))
-                    .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, 102, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(questionsPanelsLayout.createSequentialGroup()
-                        .addComponent(YesButton)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(exhudateNoButton1)))
-                .addContainerGap(106, Short.MAX_VALUE))
+                        .addComponent(swallowNoButton))
+                    .addGroup(questionsPanelsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(questionsPanelsLayout.createSequentialGroup()
+                            .addComponent(fatigueYesButton)
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                            .addComponent(fatigueNoButton))
+                        .addGroup(questionsPanelsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(questionsPanelsLayout.createSequentialGroup()
+                                .addComponent(coughYesButton)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(coughNoButton))
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, questionsPanelsLayout.createSequentialGroup()
+                                .addComponent(nodesYesButton)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(nodesNoButton))
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, questionsPanelsLayout.createSequentialGroup()
+                                .addComponent(exhudateYesButton)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(exhudateNoButton))
+                            .addComponent(jComboBox1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addGroup(questionsPanelsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(questionsPanelsLayout.createSequentialGroup()
+                            .addComponent(tonsilsYesButton)
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                            .addComponent(tonsilsNoButton))
+                        .addGroup(questionsPanelsLayout.createSequentialGroup()
+                            .addComponent(spleenYesButton)
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                            .addComponent(spleenNoButton))))
+                .addGap(59, 59, 59))
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         questionsPanelsLayout.setVerticalGroup(
             questionsPanelsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(questionsPanelsLayout.createSequentialGroup()
-                .addGap(27, 27, 27)
+                .addContainerGap()
+                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(30, 30, 30)
                 .addGroup(questionsPanelsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(feverLabel)
-                    .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                    .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(feverLabel))
+                .addGap(18, 18, 18)
                 .addGroup(questionsPanelsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(exhudateYesButton)
                     .addComponent(exhudateNoButton)
-                    .addComponent(jLabel1))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                    .addComponent(exhudateLabel))
+                .addGap(18, 18, 18)
                 .addGroup(questionsPanelsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(exhudateNoButton1)
-                    .addComponent(YesButton))
-                .addContainerGap(264, Short.MAX_VALUE))
+                    .addComponent(nodesNoButton)
+                    .addComponent(nodesYesButton)
+                    .addComponent(nodesLabel))
+                .addGap(18, 18, 18)
+                .addGroup(questionsPanelsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(coughNoButton)
+                    .addComponent(coughYesButton)
+                    .addComponent(coughLabel))
+                .addGap(18, 18, 18)
+                .addGroup(questionsPanelsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(fatigueNoButton)
+                    .addComponent(fatigueYesButton)
+                    .addComponent(fatigueLabel))
+                .addGap(18, 18, 18)
+                .addGroup(questionsPanelsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(swallowNoButton)
+                    .addComponent(swallowYesButton)
+                    .addComponent(swallowLabel))
+                .addGap(18, 18, 18)
+                .addGroup(questionsPanelsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(spleenNoButton)
+                    .addComponent(spleenYesButton)
+                    .addComponent(spleenLabel))
+                .addGap(18, 18, 18)
+                .addGroup(questionsPanelsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(tonsilsNoButton)
+                    .addComponent(tonsilsYesButton)
+                    .addComponent(tonsilsLabel))
+                .addContainerGap(135, Short.MAX_VALUE))
         );
 
-        add(questionsPanels, java.awt.BorderLayout.CENTER);
+        add(questionsPanels, java.awt.BorderLayout.PAGE_START);
     }// </editor-fold>//GEN-END:initComponents
 
     private void nextButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_nextButtonActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_nextButtonActionPerformed
 
+    private void jComboBox1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jComboBox1ActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JRadioButton YesButton;
     private javax.swing.JPanel buttonPanel;
+    private javax.swing.ButtonGroup coughGroup;
+    private javax.swing.JLabel coughLabel;
+    private javax.swing.JRadioButton coughNoButton;
+    private javax.swing.JRadioButton coughYesButton;
+    private javax.swing.JLabel exhudateLabel;
     private javax.swing.JRadioButton exhudateNoButton;
-    private javax.swing.JRadioButton exhudateNoButton1;
     private javax.swing.JRadioButton exhudateYesButton;
     private javax.swing.ButtonGroup exudateGroup;
+    private javax.swing.ButtonGroup fatigueGroup;
+    private javax.swing.JLabel fatigueLabel;
+    private javax.swing.JRadioButton fatigueNoButton;
+    private javax.swing.JRadioButton fatigueYesButton;
     private javax.swing.JLabel feverLabel;
     private javax.swing.JComboBox<String> jComboBox1;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JPanel jPanel1;
     private javax.swing.JButton nextButton;
+    private javax.swing.ButtonGroup nodesGroup;
+    private javax.swing.JLabel nodesLabel;
+    private javax.swing.JRadioButton nodesNoButton;
+    private javax.swing.JRadioButton nodesYesButton;
     private javax.swing.JPanel questionsPanels;
+    private javax.swing.ButtonGroup spleenGroup;
+    private javax.swing.JLabel spleenLabel;
+    private javax.swing.JRadioButton spleenNoButton;
+    private javax.swing.JRadioButton spleenYesButton;
+    private javax.swing.ButtonGroup swallowGroup;
+    private javax.swing.JLabel swallowLabel;
+    private javax.swing.JRadioButton swallowNoButton;
+    private javax.swing.JRadioButton swallowYesButton;
+    private javax.swing.ButtonGroup tonsilsGroup;
+    private javax.swing.JLabel tonsilsLabel;
+    private javax.swing.JRadioButton tonsilsNoButton;
+    private javax.swing.JRadioButton tonsilsYesButton;
     // End of variables declaration//GEN-END:variables
 }
