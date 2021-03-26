@@ -7,6 +7,7 @@ package gui;
 
 import net.sf.clipsrules.jni.*;
 
+
 /**
  *
  * @author laura
@@ -17,7 +18,9 @@ public class main {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-
+        
+        // solo me deja inicializar el mapa en el main, porque? no lo se? AUIDA
+        
         // TODO code application logic here
         Environment clips;
         clips = new Environment();

@@ -39,8 +39,11 @@ public class Patient {
         this.swallowing = swallowing;
         this.s_spleen = s_spleen;
         this.s_tonsils = s_tonsils;
-    
+        
+        pathologies = new TreeSet<>();
     }
+    
+    
     
     public Patient(){
         pathologies = new TreeSet<>();
