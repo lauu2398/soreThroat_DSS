@@ -12,8 +12,12 @@ package gui;
 public class Pathology implements Comparable<Pathology>{
     
     private String name;
-    private Float score;
+    private float score;
     
+    public Pathology(String name, float score){
+        this.name = name; 
+        this.score = score;
+    }
 
     @Override
     public int compareTo(Pathology pathology) {

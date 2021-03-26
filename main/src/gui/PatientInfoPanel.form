@@ -4,6 +4,8 @@
   <NonVisualComponents>
     <Component class="javax.swing.ButtonGroup" name="exudateGroup">
     </Component>
+    <Component class="javax.swing.ButtonGroup" name="sNodesGroup">
+    </Component>
   </NonVisualComponents>
   <AuxValues>
     <AuxValue name="FormSettings_autoResourcing" type="java.lang.Integer" value="0"/>
@@ -89,11 +91,11 @@
                           <EmptySpace max="-2" attributes="0"/>
                           <Component id="exhudateNoButton" min="-2" max="-2" attributes="0"/>
                       </Group>
-                      <Component id="jComboBox1" min="-2" pref="102" max="-2" attributes="0"/>
+                      <Component id="feverComboBox" min="-2" pref="102" max="-2" attributes="0"/>
                       <Group type="102" attributes="0">
-                          <Component id="YesButton" min="-2" max="-2" attributes="0"/>
+                          <Component id="sNodesYesButton" min="-2" max="-2" attributes="0"/>
                           <EmptySpace max="-2" attributes="0"/>
-                          <Component id="exhudateNoButton1" min="-2" max="-2" attributes="0"/>
+                          <Component id="sNodesNoButton" min="-2" max="-2" attributes="0"/>
                       </Group>
                   </Group>
                   <EmptySpace pref="106" max="32767" attributes="0"/>
@@ -106,7 +108,7 @@
                   <EmptySpace min="-2" pref="27" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
                       <Component id="feverLabel" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="jComboBox1" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="feverComboBox" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
@@ -116,8 +118,8 @@
                   </Group>
                   <EmptySpace max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
-                      <Component id="exhudateNoButton1" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="YesButton" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="sNodesNoButton" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="sNodesYesButton" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace pref="264" max="32767" attributes="0"/>
               </Group>
@@ -130,7 +132,7 @@
             <Property name="text" type="java.lang.String" value="Does the patient have fever?"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JComboBox" name="jComboBox1">
+        <Component class="javax.swing.JComboBox" name="feverComboBox">
           <Properties>
             <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
               <StringArray count="3">
@@ -157,6 +159,7 @@
             <Property name="buttonGroup" type="javax.swing.ButtonGroup" editor="org.netbeans.modules.form.RADComponent$ButtonGroupPropertyEditor">
               <ComponentRef name="exudateGroup"/>
             </Property>
+            <Property name="selected" type="boolean" value="true"/>
             <Property name="text" type="java.lang.String" value="No"/>
           </Properties>
         </Component>
@@ -165,19 +168,20 @@
             <Property name="text" type="java.lang.String" value="Does the patient present exhudate?"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JRadioButton" name="YesButton">
+        <Component class="javax.swing.JRadioButton" name="sNodesYesButton">
           <Properties>
             <Property name="buttonGroup" type="javax.swing.ButtonGroup" editor="org.netbeans.modules.form.RADComponent$ButtonGroupPropertyEditor">
-              <ComponentRef name="exudateGroup"/>
+              <ComponentRef name="sNodesGroup"/>
             </Property>
             <Property name="text" type="java.lang.String" value="Yes"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JRadioButton" name="exhudateNoButton1">
+        <Component class="javax.swing.JRadioButton" name="sNodesNoButton">
           <Properties>
             <Property name="buttonGroup" type="javax.swing.ButtonGroup" editor="org.netbeans.modules.form.RADComponent$ButtonGroupPropertyEditor">
-              <ComponentRef name="exudateGroup"/>
+              <ComponentRef name="sNodesGroup"/>
             </Property>
+            <Property name="selected" type="boolean" value="true"/>
             <Property name="text" type="java.lang.String" value="No"/>
           </Properties>
         </Component>

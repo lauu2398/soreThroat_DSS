@@ -5,18 +5,48 @@
  */
 package gui;
 
+import java.awt.Container;
+import java.io.FileNotFoundException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.swing.SwingUtilities;
+import net.sf.clipsrules.jni.CLIPSException;
+import net.sf.clipsrules.jni.Environment;
+import net.sf.clipsrules.jni.FactAddressValue;
+import net.sf.clipsrules.jni.StringValue;
+
 /**
  *
  * @author Legion
  */
 public class PatientInfoPanel extends javax.swing.JPanel {
 
+    private Environment clips;
+    private Patient patient; 
+    private boolean isExecuting = false; 
+    Thread executionThread;
+
     /**
      * Creates new form PatientInfoPanel
      */
     public PatientInfoPanel() {
         initComponents();
+        clips = new Environment();
+        try {
+            clips.loadFromResource("/resources/inferenceEngine_ThroatPath.clp");
+        } catch (CLIPSException e) {
+            //Maybe show alert
+            e.printStackTrace();
+             System.out.println("Exiting");
+            System.exit(1);
+        } catch (FileNotFoundException ex) {
+            Logger.getLogger(MainJFrame.class.getName()).log(Level.SEVERE, null, ex);
+            System.out.println("Exiting");
+            System.exit(1);
+        }
     }
+
+  
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -28,16 +58,17 @@ public class PatientInfoPanel extends javax.swing.JPanel {
     private void initComponents() {
 
         exudateGroup = new javax.swing.ButtonGroup();
+        sNodesGroup = new javax.swing.ButtonGroup();
         buttonPanel = new javax.swing.JPanel();
         nextButton = new javax.swing.JButton();
         questionsPanels = new javax.swing.JPanel();
         feverLabel = new javax.swing.JLabel();
-        jComboBox1 = new javax.swing.JComboBox<>();
+        feverComboBox = new javax.swing.JComboBox<>();
         exhudateYesButton = new javax.swing.JRadioButton();
         exhudateNoButton = new javax.swing.JRadioButton();
         jLabel1 = new javax.swing.JLabel();
-        YesButton = new javax.swing.JRadioButton();
-        exhudateNoButton1 = new javax.swing.JRadioButton();
+        sNodesYesButton = new javax.swing.JRadioButton();
+        sNodesNoButton = new javax.swing.JRadioButton();
 
         setLayout(new java.awt.BorderLayout());
 
@@ -72,21 +103,23 @@ public class PatientInfoPanel extends javax.swing.JPanel {
 
         feverLabel.setText("Does the patient have fever?");
 
-        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "High", "Mild", "No" }));
+        feverComboBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "High", "Mild", "No" }));
 
         exudateGroup.add(exhudateYesButton);
         exhudateYesButton.setText("Yes");
 
         exudateGroup.add(exhudateNoButton);
+        exhudateNoButton.setSelected(true);
         exhudateNoButton.setText("No");
 
         jLabel1.setText("Does the patient present exhudate?");
 
-        exudateGroup.add(YesButton);
-        YesButton.setText("Yes");
+        sNodesGroup.add(sNodesYesButton);
+        sNodesYesButton.setText("Yes");
 
-        exudateGroup.add(exhudateNoButton1);
-        exhudateNoButton1.setText("No");
+        sNodesGroup.add(sNodesNoButton);
+        sNodesNoButton.setSelected(true);
+        sNodesNoButton.setText("No");
 
         javax.swing.GroupLayout questionsPanelsLayout = new javax.swing.GroupLayout(questionsPanels);
         questionsPanels.setLayout(questionsPanelsLayout);
@@ -103,11 +136,11 @@ public class PatientInfoPanel extends javax.swing.JPanel {
                         .addComponent(exhudateYesButton)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(exhudateNoButton))
-                    .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, 102, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(feverComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, 102, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(questionsPanelsLayout.createSequentialGroup()
-                        .addComponent(YesButton)
+                        .addComponent(sNodesYesButton)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(exhudateNoButton1)))
+                        .addComponent(sNodesNoButton)))
                 .addContainerGap(106, Short.MAX_VALUE))
         );
         questionsPanelsLayout.setVerticalGroup(
@@ -116,7 +149,7 @@ public class PatientInfoPanel extends javax.swing.JPanel {
                 .addGap(27, 27, 27)
                 .addGroup(questionsPanelsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(feverLabel)
-                    .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(feverComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(questionsPanelsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(exhudateYesButton)
@@ -124,8 +157,8 @@ public class PatientInfoPanel extends javax.swing.JPanel {
                     .addComponent(jLabel1))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(questionsPanelsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(exhudateNoButton1)
-                    .addComponent(YesButton))
+                    .addComponent(sNodesNoButton)
+                    .addComponent(sNodesYesButton))
                 .addContainerGap(264, Short.MAX_VALUE))
         );
 
@@ -133,21 +166,195 @@ public class PatientInfoPanel extends javax.swing.JPanel {
     }// </editor-fold>//GEN-END:initComponents
 
     private void nextButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_nextButtonActionPerformed
-        // TODO add your handling code here:
+        try {
+            if (isExecuting) return;
+            //reset clips
+            clips.reset();
+            patient = new Patient();
+            //assert facts: get all info
+            assertFacts();
+            //crear thread de clips + callback (update diagnosis)
+            Runnable clipsThread
+                    = new Runnable() {
+                public void run() {
+                    try {
+                        clips.run();
+                    } catch (CLIPSException e) {
+                        e.printStackTrace();
+                    }
+
+                    SwingUtilities.invokeLater(
+                            new Runnable() {
+                        public void run() {
+                            try { 
+                                getDecision();
+                                changePanel();
+                            } catch (Exception e) {
+                                e.printStackTrace();
+                            }
+                        }});
+                    };
+                };
+        isExecuting = true;
+      
+        executionThread = new Thread(clipsThread);
+      
+        executionThread.start();
+
+            //cambio panel
+        } catch (CLIPSException ex) {
+            Logger.getLogger(PatientInfoPanel.class.getName()).log(Level.SEVERE, null, ex);
+            ex.printStackTrace();
+        }
     }//GEN-LAST:event_nextButtonActionPerformed
 
+    private void assertFacts(){
+        String fever;
+        String exhudate;
+        String sNodes;
+        String sSpleen;
+        String sTonsils;
+        String cough;
+        String fatigue;
+        String swallowing;
+        /*
+        fever = feverComboBox.getSelectedItem().toString();
+        if (fever.toLowerCase().equals("high") fever = h;
+        if (fever.toLowerCase().equals("mild") fever = m;
+        if (fever.toLowerCase().equals("no") fever = n;
+        String exhudate;
+        String sNodes;
+        String sSpleen;
+        String sTonsils;
+        Stirng cough;
+        String fatigue;
+        String swallowing;
+        
+        if(exhudateYesButton.isSelected()){
+            exhudate = y;
+        } 
+        else {
+            exhudate= n;
+        } 
+        
+        
+        if(sNodesYesButton.isSelected()){
+            sNodes = y;
+        }
+        else {
+            sNodes = n;
+        }
+        
+        
+        if(sSpleenYesButton.isSelected()) {
+            sSpleen = y;
+        } 
+        else {
+            sSpleen = n;
+        }
+        
+        
+        if(sTonsilsYesButton.isSelected()) {
+            sTonsils = y;
+        }
+        else {
+            sTonsils = n;
+        } 
+        
+        
+        if(coughYesButton.isSelected()) {
+            cough = y;
+        } 
+        else {
+            cough = n;
+        } 
+        
+        
+        if(fatigueyesButton.isSelected()){
+            fatigue = y;
+        }
+        else{
+            fatigue = n;
+        } 
+        
+        if(swallowingYesButton.isSelected()){
+            swallowing = y;
+        } 
+        else {
+            swallowing = n;
+        } 
+        
+        
+    */
+
+       /*
+        try{
+        String fact = "(Patient (fever "+fever+") (exudate "+exhudate+") (s-spleen "+sSpleen+") (cough "+
+                cough+") (fatigue "+fatigue+") (swallowing "+swallowing+") (s-spleen "+sSpleen+") (s-tonsils "+sTonsils+"))";
+          clips.assertString(fact);
+        
+        patient = new Patient(fever, exudate, sSpleen, cough, fatigue, swallowing, sSpleen, sTonsils);
+        }
+        */
+       
+       
+    }
+
+    private void getDecision(){
+        //try {
+          /*  System.out.println("Getiting diagnosis");
+            FactAddressValue fv = clips.findFact("Patient"); //only one fact actually
+            String decisionComputed = (fv.getSlotValue("decision_computed")).toString();
+            if(decisionComputed != "TRUE"){
+                //Show alert something went wrong
+            }
+            else{
+                float scoreMono = Float.parseFloat((fv.getSlotValue("score-mono")).toString());
+                float scoreStrep = Float.parseFloat((fv.getSlotValue("score-strep")).toString());
+                float scoreViral= Float.parseFloat((fv.getSlotValue("score-viral")).toString());
+                float scoreCancer = Float.parseFloat((fv.getSlotValue("score-cancer")).toString());
+                float scoreAbscess= Float.parseFloat((fv.getSlotValue("score-abscess")).toString());
+                float scoreBody = Float.parseFloat((fv.getSlotValue("score-body")).toString());
+                
+                patient.addPathology(new Pathology("Mononucleosis", scoreMono));
+                patient.addPathology(new Pathology("Strep throat", scoreStrep));
+                patient.addPathology(new Pathology("Viral pharyngitis", scoreViral));
+                patient.addPathology(new Pathology("Pharyngeal cancer", scoreCancer));
+                patient.addPathology(new Pathology("Foreign body", scoreBody));
+                patient.addPathology(new Pathology("Peritonsillar abscess", scoreAbscess));
+            }
+        } catch (CLIPSException ex) {
+            Logger.getLogger(PatientInfoPanel.class.getName()).log(Level.SEVERE, null, ex);
+        }*/
+        
+        isExecuting = false; 
+         
+    }
+    
+    private void changePanel(){
+        Container container = this.getParent();
+        container.removeAll();
+        PanelTonto panel = new PanelTonto();
+        container.add(panel);
+        container.revalidate();
+        container.repaint();
+        panel.setVisible(true);
+        
+    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JRadioButton YesButton;
     private javax.swing.JPanel buttonPanel;
     private javax.swing.JRadioButton exhudateNoButton;
-    private javax.swing.JRadioButton exhudateNoButton1;
     private javax.swing.JRadioButton exhudateYesButton;
     private javax.swing.ButtonGroup exudateGroup;
+    private javax.swing.JComboBox<String> feverComboBox;
     private javax.swing.JLabel feverLabel;
-    private javax.swing.JComboBox<String> jComboBox1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JButton nextButton;
     private javax.swing.JPanel questionsPanels;
+    private javax.swing.ButtonGroup sNodesGroup;
+    private javax.swing.JRadioButton sNodesNoButton;
+    private javax.swing.JRadioButton sNodesYesButton;
     // End of variables declaration//GEN-END:variables
 }
+

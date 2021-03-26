@@ -5,20 +5,32 @@
  */
 package gui;
 
+import java.io.FileNotFoundException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.swing.JPanel;
 import javax.swing.JTabbedPane;
+import net.sf.clipsrules.jni.CLIPSException;
+import net.sf.clipsrules.jni.CLIPSLoadException;
+import net.sf.clipsrules.jni.Environment;
 
 /**
  *
  * @author Legion
  */
 public class MainJFrame extends javax.swing.JFrame {
+    
 
     /**
      * Creates new form MainJFrame
      */
     public MainJFrame() {
         initComponents();
+        
+        
     }
+    
+    
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -46,23 +58,8 @@ public class MainJFrame extends javax.swing.JFrame {
                 tabbedPaneStateChanged(evt);
             }
         });
-        tabbedPane.addFocusListener(new java.awt.event.FocusAdapter() {
-            public void focusGained(java.awt.event.FocusEvent evt) {
-                tabbedPaneFocusGained(evt);
-            }
-        });
 
-        javax.swing.GroupLayout DiagnosisPanelLayout = new javax.swing.GroupLayout(DiagnosisPanel);
-        DiagnosisPanel.setLayout(DiagnosisPanelLayout);
-        DiagnosisPanelLayout.setHorizontalGroup(
-            DiagnosisPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 398, Short.MAX_VALUE)
-        );
-        DiagnosisPanelLayout.setVerticalGroup(
-            DiagnosisPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 274, Short.MAX_VALUE)
-        );
-
+        DiagnosisPanel.setLayout(new java.awt.BorderLayout());
         tabbedPane.addTab("diagnosis", DiagnosisPanel);
 
         javax.swing.GroupLayout viralPahelLayout = new javax.swing.GroupLayout(viralPahel);
@@ -99,13 +96,19 @@ public class MainJFrame extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void tabbedPaneFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_tabbedPaneFocusGained
-       System.out.println("Focus gained");
-    }//GEN-LAST:event_tabbedPaneFocusGained
-
     private void tabbedPaneStateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_tabbedPaneStateChanged
         JTabbedPane sourceTabbedPane = (JTabbedPane) evt.getSource();
         int index = sourceTabbedPane.getSelectedIndex();
+        if(sourceTabbedPane.getTitleAt(index).equals("diagnosis")){
+            //add new JPanel: patient Info panel
+            System.out.println("Hello");
+            PatientInfoPanel patientInfoPanel = new PatientInfoPanel();
+            DiagnosisPanel.removeAll();
+            DiagnosisPanel.add(patientInfoPanel);
+            DiagnosisPanel.revalidate();
+            DiagnosisPanel.repaint();
+            patientInfoPanel.setVisible(true);
+        }
         System.out.println("Tab changed to: " + sourceTabbedPane.getTitleAt(index));        // TODO add your handling code here:
     }//GEN-LAST:event_tabbedPaneStateChanged
 

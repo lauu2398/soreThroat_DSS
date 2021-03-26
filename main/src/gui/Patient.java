@@ -5,6 +5,10 @@
  */
 package gui;
 
+import java.util.List;
+import java.util.ArrayList;
+import java.util.TreeSet;
+
 /**
  *
  * @author laura
@@ -20,13 +24,12 @@ public class Patient {
     private String swallowing;
     private String s_spleen;
     private String s_tonsils;
+    
+    private TreeSet<Pathology> pathologies;
   
 
     public Patient(String name, String fever, String exudate, String s_node, String cough, String fatigue,
-            String swallowing, String s_spleen, String s_tonsils, float score_mono, float score_viral,
-            float score_strep, float score_cancer, float score_abcess, float score_body,
-            boolean fever_computed, boolean exudate_computed, boolean s_node_computed, boolean cough_computed,
-            boolean fatigue_computed, boolean swallowing_computed, boolean s_spleen_computed, boolean s_tonsils_computed) {
+            String swallowing, String s_spleen, String s_tonsils) {
         this.name = name;
         this.fever = fever;
         this.exudate = exudate;
@@ -37,7 +40,10 @@ public class Patient {
         this.s_spleen = s_spleen;
         this.s_tonsils = s_tonsils;
     
-
+    }
+    
+    public Patient(){
+        pathologies = new TreeSet<>();
     }
 
     public String getName() {
@@ -110,5 +116,26 @@ public class Patient {
 
     public void setS_tonsils(String s_tonsils) {
         this.s_tonsils = s_tonsils;
+    }
+    
+    public void addPathology(Pathology path){
+        this.pathologies.add(path);
+    }
+    
+    public TreeSet getPathologies(){
+        return pathologies; 
+    }
+    
+    public String toString(){
+       return "Patient info: \n"+
+                "name: "+name+
+                "\nfever: "+fever+
+                "\nexhudate: "+exudate+
+                "\nswollen nodes: "+s_node+
+                "\ncough: "+cough+
+                "\nfatigue: "+fatigue+
+                "\nswollen spleen: "+s_spleen+
+                "\ntrouble swallowing: "+swallowing+
+                "\nswollen tonsils: "+s_tonsils;
     }
 }
