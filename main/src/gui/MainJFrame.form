@@ -72,7 +72,7 @@
         </Property>
         <Property name="toolTipText" type="java.lang.String" value=""/>
         <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">
-          <Color id="Cursor Por defecto"/>
+          <Color id="Default Cursor"/>
         </Property>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="Tahoma" size="18" style="0"/>
@@ -108,7 +108,7 @@
                   <Group type="102" alignment="0" attributes="0">
                       <EmptySpace min="-2" pref="26" max="-2" attributes="0"/>
                       <Component id="jLabel9" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace pref="307" max="32767" attributes="0"/>
+                      <EmptySpace pref="482" max="32767" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
@@ -192,7 +192,7 @@
                                   <Component id="jLabel7" min="-2" max="-2" attributes="0"/>
                               </Group>
                           </Group>
-                          <EmptySpace pref="22" max="32767" attributes="0"/>
+                          <EmptySpace pref="202" max="32767" attributes="0"/>
                       </Group>
                   </Group>
                 </DimensionLayout>
@@ -250,7 +250,9 @@
                       <Group type="102" alignment="0" attributes="0">
                           <EmptySpace max="-2" attributes="0"/>
                           <Component id="jScrollPane2" min="-2" pref="465" max="-2" attributes="0"/>
-                          <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                          <EmptySpace type="separate" max="-2" attributes="0"/>
+                          <Component id="jLabel8" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace min="-2" pref="217" max="-2" attributes="0"/>
                           <Component id="jLabel2" min="-2" pref="567" max="-2" attributes="0"/>
                           <EmptySpace max="32767" attributes="0"/>
                       </Group>
@@ -258,13 +260,21 @@
                 </DimensionLayout>
                 <DimensionLayout dim="1">
                   <Group type="103" groupAlignment="0" attributes="0">
-                      <Group type="102" alignment="0" attributes="0">
-                          <EmptySpace max="-2" attributes="0"/>
-                          <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                              <Component id="jScrollPane2" alignment="0" pref="384" max="32767" attributes="0"/>
-                              <Component id="jLabel2" alignment="0" pref="0" max="32767" attributes="0"/>
+                      <Group type="102" attributes="0">
+                          <Group type="103" groupAlignment="0" attributes="0">
+                              <Group type="102" attributes="0">
+                                  <EmptySpace max="-2" attributes="0"/>
+                                  <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                                      <Component id="jScrollPane2" alignment="0" pref="384" max="32767" attributes="0"/>
+                                      <Component id="jLabel2" alignment="0" pref="0" max="32767" attributes="0"/>
+                                  </Group>
+                              </Group>
+                              <Group type="102" alignment="0" attributes="0">
+                                  <EmptySpace min="-2" pref="32" max="-2" attributes="0"/>
+                                  <Component id="jLabel8" min="-2" max="-2" attributes="0"/>
+                              </Group>
                           </Group>
-                          <EmptySpace max="32767" attributes="0"/>
+                          <EmptySpace pref="202" max="32767" attributes="0"/>
                       </Group>
                   </Group>
                 </DimensionLayout>
@@ -281,6 +291,7 @@
                       <Properties>
                         <Property name="columns" type="int" value="20"/>
                         <Property name="rows" type="int" value="5"/>
+                        <Property name="text" type="java.lang.String" value="Infectious disease characterized by sore throat, cervical lymph node, fatigue&#xa;and fever. It can be caused by several pathogens. The most ommon is the mononuleosis&#xa;caused by the Epstein-Barr virus (EBV). &#xa;&#xa;Risk factors:&#xa;&#x9;- Inmunodepressed people.&#xa;&#x9;- Contact with someone with mono.&#xa;&#x9;- Sexual content.&#xa;&#xa;Symptoms:&#xa;&#x9;- Extreme fatigue and high fever (+39&#xba;C).&#xa;&#x9;- Head and body aches.&#xa;&#x9;- Increased and atypical lymphocytes. Decreased neutrophils or platelets.&#xa;&#x9;- Swollen lymph nodes in the neck and/or swollen spleen.&#xa;Treatment:&#xa;&#x9;- Supportive care: patients need to rest and to drink lots of fluids.&#xa;&#x9;- Avoid heavy lifting and contact sports.&#xa;&#x9;- Corticosteroids: only used for complications incluiding airway obstruction&#xa;&#x9;  , anemia or severe thrombocytopenia.&#xa;"/>
                       </Properties>
                     </Component>
                   </SubComponents>
@@ -292,6 +303,13 @@
                     </Property>
                     <Property name="maximumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
                       <Dimension value="[600, 409]"/>
+                    </Property>
+                  </Properties>
+                </Component>
+                <Component class="javax.swing.JLabel" name="jLabel8">
+                  <Properties>
+                    <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+                      <Image iconType="3" name="/gui/mononuclosisPhoto.jpg"/>
                     </Property>
                   </Properties>
                 </Component>
@@ -318,6 +336,8 @@
                           <EmptySpace max="-2" attributes="0"/>
                           <Component id="jScrollPane3" min="-2" pref="465" max="-2" attributes="0"/>
                           <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                          <Component id="jLabel10" min="-2" pref="494" max="-2" attributes="0"/>
+                          <EmptySpace max="-2" attributes="0"/>
                           <Component id="jLabel3" min="-2" pref="567" max="-2" attributes="0"/>
                           <EmptySpace max="32767" attributes="0"/>
                       </Group>
@@ -325,11 +345,19 @@
                 </DimensionLayout>
                 <DimensionLayout dim="1">
                   <Group type="103" groupAlignment="0" attributes="0">
-                      <Group type="102" alignment="0" attributes="0">
-                          <EmptySpace max="-2" attributes="0"/>
-                          <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                              <Component id="jScrollPane3" alignment="0" pref="384" max="32767" attributes="0"/>
-                              <Component id="jLabel3" alignment="0" pref="0" max="32767" attributes="0"/>
+                      <Group type="102" attributes="0">
+                          <Group type="103" groupAlignment="0" attributes="0">
+                              <Group type="102" attributes="0">
+                                  <EmptySpace max="-2" attributes="0"/>
+                                  <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                                      <Component id="jScrollPane3" alignment="0" pref="384" max="32767" attributes="0"/>
+                                      <Component id="jLabel3" alignment="0" pref="0" max="32767" attributes="0"/>
+                                  </Group>
+                              </Group>
+                              <Group type="102" alignment="0" attributes="0">
+                                  <EmptySpace min="-2" pref="28" max="-2" attributes="0"/>
+                                  <Component id="jLabel10" min="-2" max="-2" attributes="0"/>
+                              </Group>
                           </Group>
                           <EmptySpace max="32767" attributes="0"/>
                       </Group>
@@ -348,6 +376,7 @@
                       <Properties>
                         <Property name="columns" type="int" value="20"/>
                         <Property name="rows" type="int" value="5"/>
+                        <Property name="text" type="java.lang.String" value="It is also known as streptococcal pharyngitis, it is a infection of the back of the throat &#xa;caused by a bacteria called streptococcus. This infection is spread thanks to droplets from &#xa;someone that has the disease.&#xa;&#xa;Risk factors:&#xa;&#x9;- Most common in ages 5 to 15.&#xa;&#x9;- Adults working with children.&#xa;Symptoms:&#xa;&#x9;- Sore throat: red and swollen tonsils.&#xa;&#x9;- Problems at swallowing.&#xa;&#x9;- High fever (+38&#xba;c), chills, headace.&#xa;&#x9;- Swollen lymph nodes in the neck.&#xa;&#x9;- Loss of appetite.&#xa;Treatment:&#xa;&#x9;- Antibiotics: penicillin or amoxicillin for 10 days.&#xa;&#x9;- Drink warm liquids.&#xa;&#x9;- Gargling with salt water.&#xa;&#x9;- Rest.&#xa;"/>
                       </Properties>
                     </Component>
                   </SubComponents>
@@ -359,6 +388,13 @@
                     </Property>
                     <Property name="maximumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
                       <Dimension value="[600, 409]"/>
+                    </Property>
+                  </Properties>
+                </Component>
+                <Component class="javax.swing.JLabel" name="jLabel10">
+                  <Properties>
+                    <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+                      <Image iconType="3" name="/gui/strepThroat3.jpg"/>
                     </Property>
                   </Properties>
                 </Component>
@@ -415,6 +451,7 @@
                       <Properties>
                         <Property name="columns" type="int" value="20"/>
                         <Property name="rows" type="int" value="5"/>
+                        <Property name="text" type="java.lang.String" value="It is a type of head and neck cancer that has different names depending on which part &#xa;of the throat is affected. This cancer is most of the tiems begins in the flat cells that line &#xa;the inside of your throat. The voice box sits just below the throat and also is susceptible &#xa;to throat cancer.&#xa;&#xa;Symptoms:&#xa;&#x9;- Throat redness.&#xa;&#x9;- Exudate fluid.&#xa;&#x9;- Swollen nodes.&#xa;&#x9;- Fatigue.&#xa;Risk factors:&#xa;&#x9;- Tobacco.&#xa;&#x9;- Excessive alcohol use.&#xa;&#x9;- Poor diet.&#xa;&#x9;- Exposure to toxics.&#xa;&#x9;- Most common in ages older than 45 and men.&#xa;Treatment:&#xa;&#x9;- Radiation therapy.&#xa;&#x9;- Surgery: different options depending on the sate and location of cancer.&#xa;&#x9;- Chemotherapy, inmunotherapy. &#xa;"/>
                       </Properties>
                     </Component>
                   </SubComponents>
@@ -452,6 +489,8 @@
                           <EmptySpace max="-2" attributes="0"/>
                           <Component id="jScrollPane5" min="-2" pref="465" max="-2" attributes="0"/>
                           <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                          <Component id="jLabel11" min="-2" pref="436" max="-2" attributes="0"/>
+                          <EmptySpace max="-2" attributes="0"/>
                           <Component id="jLabel5" min="-2" pref="567" max="-2" attributes="0"/>
                           <EmptySpace max="32767" attributes="0"/>
                       </Group>
@@ -461,11 +500,14 @@
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Group type="102" alignment="0" attributes="0">
                           <EmptySpace max="-2" attributes="0"/>
-                          <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                              <Component id="jScrollPane5" alignment="0" pref="384" max="32767" attributes="0"/>
-                              <Component id="jLabel5" alignment="0" pref="0" max="32767" attributes="0"/>
+                          <Group type="103" groupAlignment="0" attributes="0">
+                              <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                                  <Component id="jScrollPane5" alignment="0" pref="384" max="32767" attributes="0"/>
+                                  <Component id="jLabel5" alignment="0" pref="0" max="32767" attributes="0"/>
+                              </Group>
+                              <Component id="jLabel11" min="-2" pref="364" max="-2" attributes="0"/>
                           </Group>
-                          <EmptySpace max="32767" attributes="0"/>
+                          <EmptySpace pref="202" max="32767" attributes="0"/>
                       </Group>
                   </Group>
                 </DimensionLayout>
@@ -482,6 +524,7 @@
                       <Properties>
                         <Property name="columns" type="int" value="20"/>
                         <Property name="rows" type="int" value="5"/>
+                        <Property name="text" type="java.lang.String" value="A foreign body in the airway (choking) constitutues a medical  emergency and requires immedite&#xa;attention. The foreign body can get stuck in many different places within the airway.&#xa;&#xa;Risk factors:&#xa;&#x9;- Avoid small objects.&#xa;&#x9;- Most common in ages 2-8.&#xa;&#x9;- Occupation: nursery and school.&#xa;&#xa;Symptoms:&#xa;&#x9;- Throat redness.&#xa;&#x9;- Cough.&#xa;&#x9;- Trouble swallowing.&#xa;&#xa;Treatment:&#xa;&#x9;- Forceps may be used to grab the object.&#xa;&#x9;- Endoscopy.&#xa;&#x9;- Bougienage: pushing the object towards the stomach.&#xa;&#x9;- Balloon catheter: pulling the object out of the esophagus.&#xa;&#x9;- Surgery."/>
                       </Properties>
                     </Component>
                   </SubComponents>
@@ -493,6 +536,13 @@
                     </Property>
                     <Property name="maximumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
                       <Dimension value="[600, 409]"/>
+                    </Property>
+                  </Properties>
+                </Component>
+                <Component class="javax.swing.JLabel" name="jLabel11">
+                  <Properties>
+                    <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+                      <Image iconType="3" name="/gui/foreignBodyPhoto.jpg"/>
                     </Property>
                   </Properties>
                 </Component>

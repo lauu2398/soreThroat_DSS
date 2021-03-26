@@ -53,10 +53,12 @@ public class MainJFrame extends javax.swing.JFrame {
         jScrollPane2 = new javax.swing.JScrollPane();
         jTextArea2 = new javax.swing.JTextArea();
         jLabel2 = new javax.swing.JLabel();
+        jLabel8 = new javax.swing.JLabel();
         viralPahel2 = new javax.swing.JPanel();
         jScrollPane3 = new javax.swing.JScrollPane();
         jTextArea3 = new javax.swing.JTextArea();
         jLabel3 = new javax.swing.JLabel();
+        jLabel10 = new javax.swing.JLabel();
         viralPahel3 = new javax.swing.JPanel();
         jScrollPane4 = new javax.swing.JScrollPane();
         jTextArea4 = new javax.swing.JTextArea();
@@ -65,6 +67,7 @@ public class MainJFrame extends javax.swing.JFrame {
         jScrollPane5 = new javax.swing.JScrollPane();
         jTextArea5 = new javax.swing.JTextArea();
         jLabel5 = new javax.swing.JLabel();
+        jLabel11 = new javax.swing.JLabel();
         viralPahel5 = new javax.swing.JPanel();
         jScrollPane6 = new javax.swing.JScrollPane();
         jTextArea6 = new javax.swing.JTextArea();
@@ -104,7 +107,7 @@ public class MainJFrame extends javax.swing.JFrame {
             .addGroup(DiagnosisPanelLayout.createSequentialGroup()
                 .addGap(26, 26, 26)
                 .addComponent(jLabel9)
-                .addContainerGap(307, Short.MAX_VALUE))
+                .addContainerGap(482, Short.MAX_VALUE))
         );
 
         tabbedPane.addTab("diagnosis", DiagnosisPanel);
@@ -146,7 +149,7 @@ public class MainJFrame extends javax.swing.JFrame {
                     .addGroup(viralPahelLayout.createSequentialGroup()
                         .addGap(67, 67, 67)
                         .addComponent(jLabel7)))
-                .addContainerGap(22, Short.MAX_VALUE))
+                .addContainerGap(202, Short.MAX_VALUE))
         );
 
         infoTabbedPanel.addTab("viral", viralPahel);
@@ -155,10 +158,13 @@ public class MainJFrame extends javax.swing.JFrame {
 
         jTextArea2.setColumns(20);
         jTextArea2.setRows(5);
+        jTextArea2.setText("Infectious disease characterized by sore throat, cervical lymph node, fatigue\nand fever. It can be caused by several pathogens. The most ommon is the mononuleosis\ncaused by the Epstein-Barr virus (EBV). \n\nRisk factors:\n\t- Inmunodepressed people.\n\t- Contact with someone with mono.\n\t- Sexual content.\n\nSymptoms:\n\t- Extreme fatigue and high fever (+39ºC).\n\t- Head and body aches.\n\t- Increased and atypical lymphocytes. Decreased neutrophils or platelets.\n\t- Swollen lymph nodes in the neck and/or swollen spleen.\nTreatment:\n\t- Supportive care: patients need to rest and to drink lots of fluids.\n\t- Avoid heavy lifting and contact sports.\n\t- Corticosteroids: only used for complications incluiding airway obstruction\n\t  , anemia or severe thrombocytopenia.\n");
         jScrollPane2.setViewportView(jTextArea2);
 
         jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/gui/viralPharingitis.jpg"))); // NOI18N
         jLabel2.setMaximumSize(new java.awt.Dimension(600, 409));
+
+        jLabel8.setIcon(new javax.swing.ImageIcon(getClass().getResource("/gui/mononuclosisPhoto.jpg"))); // NOI18N
 
         javax.swing.GroupLayout viralPahel1Layout = new javax.swing.GroupLayout(viralPahel1);
         viralPahel1.setLayout(viralPahel1Layout);
@@ -167,18 +173,25 @@ public class MainJFrame extends javax.swing.JFrame {
             .addGroup(viralPahel1Layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 465, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGap(18, 18, 18)
+                .addComponent(jLabel8)
+                .addGap(217, 217, 217)
                 .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 567, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         viralPahel1Layout.setVerticalGroup(
             viralPahel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(viralPahel1Layout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(viralPahel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 384, Short.MAX_VALUE)
-                    .addComponent(jLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, 0, Short.MAX_VALUE))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGroup(viralPahel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(viralPahel1Layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addGroup(viralPahel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 384, Short.MAX_VALUE)
+                            .addComponent(jLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, 0, Short.MAX_VALUE)))
+                    .addGroup(viralPahel1Layout.createSequentialGroup()
+                        .addGap(32, 32, 32)
+                        .addComponent(jLabel8)))
+                .addContainerGap(202, Short.MAX_VALUE))
         );
 
         infoTabbedPanel.addTab("mono", viralPahel1);
@@ -187,10 +200,13 @@ public class MainJFrame extends javax.swing.JFrame {
 
         jTextArea3.setColumns(20);
         jTextArea3.setRows(5);
+        jTextArea3.setText("It is also known as streptococcal pharyngitis, it is a infection of the back of the throat \ncaused by a bacteria called streptococcus. This infection is spread thanks to droplets from \nsomeone that has the disease.\n\nRisk factors:\n\t- Most common in ages 5 to 15.\n\t- Adults working with children.\nSymptoms:\n\t- Sore throat: red and swollen tonsils.\n\t- Problems at swallowing.\n\t- High fever (+38ºc), chills, headace.\n\t- Swollen lymph nodes in the neck.\n\t- Loss of appetite.\nTreatment:\n\t- Antibiotics: penicillin or amoxicillin for 10 days.\n\t- Drink warm liquids.\n\t- Gargling with salt water.\n\t- Rest.\n");
         jScrollPane3.setViewportView(jTextArea3);
 
         jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/gui/viralPharingitis.jpg"))); // NOI18N
         jLabel3.setMaximumSize(new java.awt.Dimension(600, 409));
+
+        jLabel10.setIcon(new javax.swing.ImageIcon(getClass().getResource("/gui/strepThroat3.jpg"))); // NOI18N
 
         javax.swing.GroupLayout viralPahel2Layout = new javax.swing.GroupLayout(viralPahel2);
         viralPahel2.setLayout(viralPahel2Layout);
@@ -200,16 +216,23 @@ public class MainJFrame extends javax.swing.JFrame {
                 .addContainerGap()
                 .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 465, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jLabel10, javax.swing.GroupLayout.PREFERRED_SIZE, 494, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 567, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         viralPahel2Layout.setVerticalGroup(
             viralPahel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(viralPahel2Layout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(viralPahel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jScrollPane3, javax.swing.GroupLayout.DEFAULT_SIZE, 384, Short.MAX_VALUE)
-                    .addComponent(jLabel3, javax.swing.GroupLayout.DEFAULT_SIZE, 0, Short.MAX_VALUE))
+                .addGroup(viralPahel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(viralPahel2Layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addGroup(viralPahel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(jScrollPane3, javax.swing.GroupLayout.DEFAULT_SIZE, 384, Short.MAX_VALUE)
+                            .addComponent(jLabel3, javax.swing.GroupLayout.DEFAULT_SIZE, 0, Short.MAX_VALUE)))
+                    .addGroup(viralPahel2Layout.createSequentialGroup()
+                        .addGap(28, 28, 28)
+                        .addComponent(jLabel10)))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
@@ -219,6 +242,7 @@ public class MainJFrame extends javax.swing.JFrame {
 
         jTextArea4.setColumns(20);
         jTextArea4.setRows(5);
+        jTextArea4.setText("It is a type of head and neck cancer that has different names depending on which part \nof the throat is affected. This cancer is most of the tiems begins in the flat cells that line \nthe inside of your throat. The voice box sits just below the throat and also is susceptible \nto throat cancer.\n\nSymptoms:\n\t- Throat redness.\n\t- Exudate fluid.\n\t- Swollen nodes.\n\t- Fatigue.\nRisk factors:\n\t- Tobacco.\n\t- Excessive alcohol use.\n\t- Poor diet.\n\t- Exposure to toxics.\n\t- Most common in ages older than 45 and men.\nTreatment:\n\t- Radiation therapy.\n\t- Surgery: different options depending on the sate and location of cancer.\n\t- Chemotherapy, inmunotherapy. \n");
         jScrollPane4.setViewportView(jTextArea4);
 
         jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/gui/viralPharingitis.jpg"))); // NOI18N
@@ -251,10 +275,13 @@ public class MainJFrame extends javax.swing.JFrame {
 
         jTextArea5.setColumns(20);
         jTextArea5.setRows(5);
+        jTextArea5.setText("A foreign body in the airway (choking) constitutues a medical  emergency and requires immedite\nattention. The foreign body can get stuck in many different places within the airway.\n\nRisk factors:\n\t- Avoid small objects.\n\t- Most common in ages 2-8.\n\t- Occupation: nursery and school.\n\nSymptoms:\n\t- Throat redness.\n\t- Cough.\n\t- Trouble swallowing.\n\nTreatment:\n\t- Forceps may be used to grab the object.\n\t- Endoscopy.\n\t- Bougienage: pushing the object towards the stomach.\n\t- Balloon catheter: pulling the object out of the esophagus.\n\t- Surgery.");
         jScrollPane5.setViewportView(jTextArea5);
 
         jLabel5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/gui/viralPharingitis.jpg"))); // NOI18N
         jLabel5.setMaximumSize(new java.awt.Dimension(600, 409));
+
+        jLabel11.setIcon(new javax.swing.ImageIcon(getClass().getResource("/gui/foreignBodyPhoto.jpg"))); // NOI18N
 
         javax.swing.GroupLayout viralPahel4Layout = new javax.swing.GroupLayout(viralPahel4);
         viralPahel4.setLayout(viralPahel4Layout);
@@ -264,6 +291,8 @@ public class MainJFrame extends javax.swing.JFrame {
                 .addContainerGap()
                 .addComponent(jScrollPane5, javax.swing.GroupLayout.PREFERRED_SIZE, 465, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jLabel11, javax.swing.GroupLayout.PREFERRED_SIZE, 436, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 567, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
@@ -271,10 +300,12 @@ public class MainJFrame extends javax.swing.JFrame {
             viralPahel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(viralPahel4Layout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(viralPahel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jScrollPane5, javax.swing.GroupLayout.DEFAULT_SIZE, 384, Short.MAX_VALUE)
-                    .addComponent(jLabel5, javax.swing.GroupLayout.DEFAULT_SIZE, 0, Short.MAX_VALUE))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGroup(viralPahel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(viralPahel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                        .addComponent(jScrollPane5, javax.swing.GroupLayout.DEFAULT_SIZE, 384, Short.MAX_VALUE)
+                        .addComponent(jLabel5, javax.swing.GroupLayout.DEFAULT_SIZE, 0, Short.MAX_VALUE))
+                    .addComponent(jLabel11, javax.swing.GroupLayout.PREFERRED_SIZE, 364, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(202, Short.MAX_VALUE))
         );
 
         infoTabbedPanel.addTab("foreing", viralPahel4);
@@ -400,12 +431,15 @@ public class MainJFrame extends javax.swing.JFrame {
     private javax.swing.JPanel DiagnosisPanel;
     private javax.swing.JTabbedPane infoTabbedPanel;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel10;
+    private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
+    private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
