@@ -62,6 +62,7 @@ public class PatientInfoPanel extends javax.swing.JPanel {
         spleenLabel = new javax.swing.JLabel();
         jPanel1 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
+        jLabel2 = new javax.swing.JLabel();
 
         setLayout(new java.awt.BorderLayout());
 
@@ -80,7 +81,7 @@ public class PatientInfoPanel extends javax.swing.JPanel {
         buttonPanelLayout.setHorizontalGroup(
             buttonPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, buttonPanelLayout.createSequentialGroup()
-                .addContainerGap(683, Short.MAX_VALUE)
+                .addContainerGap(772, Short.MAX_VALUE)
                 .addComponent(nextButton)
                 .addContainerGap())
         );
@@ -182,14 +183,18 @@ public class PatientInfoPanel extends javax.swing.JPanel {
         tonsilsGroup.add(tonsilsNoButton);
         tonsilsNoButton.setText("No");
 
+        spleenLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         spleenLabel.setText("Does the patient have a swollen spleen?");
 
         jPanel1.setBackground(new java.awt.Color(210, 240, 240));
 
         jLabel1.setFont(new java.awt.Font("Comic Sans MS", 1, 24)); // NOI18N
-        jLabel1.setForeground(new java.awt.Color(100, 100, 100));
+        jLabel1.setForeground(new java.awt.Color(75, 75, 75));
         jLabel1.setText("Patient's regarding information:");
         jLabel1.setAutoscrolls(true);
+
+        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/Imagen1.png"))); // NOI18N
+        jLabel2.setText(" ");
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -198,14 +203,18 @@ public class PatientInfoPanel extends javax.swing.JPanel {
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(53, 53, 53)
                 .addComponent(jLabel1)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jLabel2)
+                .addGap(90, 90, 90))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jLabel1)
-                .addContainerGap())
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel1)
+                    .addComponent(jLabel2))
+                .addGap(19, 19, 19))
         );
 
         javax.swing.GroupLayout questionsPanelsLayout = new javax.swing.GroupLayout(questionsPanels);
@@ -223,7 +232,7 @@ public class PatientInfoPanel extends javax.swing.JPanel {
                     .addComponent(nodesLabel, javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(coughLabel, javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(fatigueLabel, javax.swing.GroupLayout.Alignment.LEADING))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 209, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 302, Short.MAX_VALUE)
                 .addGroup(questionsPanelsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(questionsPanelsLayout.createSequentialGroup()
                         .addComponent(swallowYesButton)
@@ -336,6 +345,7 @@ public class PatientInfoPanel extends javax.swing.JPanel {
     private javax.swing.JLabel feverLabel;
     private javax.swing.JComboBox<String> jComboBox1;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JButton nextButton;
     private javax.swing.ButtonGroup nodesGroup;
