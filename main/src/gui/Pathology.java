@@ -93,7 +93,9 @@ public class Pathology implements Comparable<Pathology> {
     @Override
     public int compareTo(Pathology pathology) {
          if (!(score.equals(pathology.score))) {
-            return score.compareTo(pathology.score);
+             if(score > pathology.score) return -1;
+             else return 1;
+            //return score.compareTo(pathology.score);
         } else {
             return 0;
         }

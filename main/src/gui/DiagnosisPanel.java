@@ -7,6 +7,8 @@ package gui;
 
 import java.awt.Container;
 import java.util.HashMap;
+import java.util.Iterator;
+import java.util.TreeSet;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.SwingUtilities;
@@ -31,9 +33,9 @@ public class DiagnosisPanel extends javax.swing.JPanel {
     /**
      * Creates new form DiagnosisPanel
      */
-    public DiagnosisPanel() {
+    public DiagnosisPanel(Patient patient) {
         initComponents();
-       
+       /*
         //solo he pensado
         
         //Coger todos los scores para mostrarlos en la tabla
@@ -46,30 +48,53 @@ public class DiagnosisPanel extends javax.swing.JPanel {
             scoreTable.addRow(new Object[]{patient.getPathologies()}); 
             
         }        //wineList.addRow(new Object[] { wineName, new Integer(certainty) });
-        
-        
-       String pathology= (String) patient.getPathologies().first(); 
+      
+       
+     
+       float score= 1.2f; 
+       patient.addPathology(new Pathology("Peritonsillar abscess", score));
+       */
+       
+        //La tabla se rellena así y funciona
+      
+       scoreTable=new DefaultTableModel();
+       scoreTable = (DefaultTableModel) jTable1.getModel();
+       //scoreTable.addRow(new Object[]{"Mononucleosis", "98"}); 
+       Pathology path; 
+       Iterator<Pathology> it = patient.getPathologies().iterator();
+       
+       while(it.hasNext()){
+           path = it.next();
+           scoreTable.addRow(new Object[]{path.getName(), path.getScore()});
+       }
+       
+       path = (Pathology) patient.getPathologies().first();
+       String pathology= path.getName(); 
+       //String pathology ="Mononucleosis"; //Esto es una prueba se puede borrar
+       
+       
         // String score = pathology.getScore("score").toString();
         //System.out.println(" Score Mono: " + score);
+        
        //Seria mejor que fuera otro mapa
        switch (pathology) {
            case "Mononucleosis":
-               recomendation=" ";
+               recomendation="The patient should have a large intake of fluids along with acetaminophen therapy to control fever and pain.  ";
                break;
            case "Strep throat":
-               recomendation= " ";
+               recomendation= "The patient should take antibiotics and antiinflamatory therapy along with acetaminophen for fever.";
                break;
            case "Viral Pharingitis":
-               recomendation= " ";
+               recomendation= "The patient should have an intake of fluids along with acetaminophen therapy to control fever and pain. ";
                break;
            case "Pharyngeal cancer":
-               recomendation= " ";
+               recomendation= "The patient should have an appointment with an oncology as soon as possible to make a biopsy of the suspicious tissue in order to make a diagnosis.";
                break;
            case "Foreign body":
-               recomendation= " ";
+               recomendation= "The patient should go as soon as possible to a medical center to be attended byy a phisician in order to get the foreign body extracted.";
                break;
            case "Peritonsillar abscess":
-               recomendation= " ";
+               recomendation= "The patient should take antibiotics and antiinflamatory therapy.";
                break;
            default:
                break;
@@ -177,7 +202,9 @@ public class DiagnosisPanel extends javax.swing.JPanel {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-             if (isExecuting) return;
+           
+        changePanel();
+        /* if (isExecuting) return;
         //reset clips
         //crear thread de clips + callback (update diagnosis)
         Runnable clipsThread  = new Runnable() {
@@ -204,7 +231,7 @@ public class DiagnosisPanel extends javax.swing.JPanel {
         executionThread.start();
         
         //cambio panel
-   
+   */
     
     }//GEN-LAST:event_jButton2ActionPerformed
 private void changePanel(){

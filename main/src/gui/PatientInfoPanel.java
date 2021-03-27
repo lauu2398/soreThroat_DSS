@@ -31,7 +31,7 @@ public class PatientInfoPanel extends javax.swing.JPanel {
      * Creates new form PatientInfoPanel
      */
     public PatientInfoPanel() {
-        System.out.println("Panel info paciente");
+   
         initComponents();
         clips = new Environment();
         try {
@@ -96,6 +96,7 @@ public class PatientInfoPanel extends javax.swing.JPanel {
         jPanel1 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
+        jLabel3 = new javax.swing.JLabel();
 
         setLayout(new java.awt.BorderLayout());
 
@@ -230,6 +231,9 @@ public class PatientInfoPanel extends javax.swing.JPanel {
 
         jLabel2.setText(" ");
 
+        jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/lupaIcon.png"))); // NOI18N
+        jLabel3.setText(" ");
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -237,9 +241,11 @@ public class PatientInfoPanel extends javax.swing.JPanel {
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(53, 53, 53)
                 .addComponent(jLabel1)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 154, Short.MAX_VALUE)
                 .addComponent(jLabel2)
-                .addGap(90, 90, 90))
+                .addGap(18, 18, 18)
+                .addComponent(jLabel3)
+                .addGap(24, 24, 24))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -247,7 +253,8 @@ public class PatientInfoPanel extends javax.swing.JPanel {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel1)
-                    .addComponent(jLabel2))
+                    .addComponent(jLabel2)
+                    .addComponent(jLabel3))
                 .addGap(19, 19, 19))
         );
 
@@ -273,14 +280,14 @@ public class PatientInfoPanel extends javax.swing.JPanel {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(swallowNoButton))
                     .addGroup(questionsPanelsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addGroup(questionsPanelsLayout.createSequentialGroup()
+                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, questionsPanelsLayout.createSequentialGroup()
                             .addComponent(fatigueYesButton)
-                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                             .addComponent(fatigueNoButton))
                         .addGroup(questionsPanelsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(questionsPanelsLayout.createSequentialGroup()
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, questionsPanelsLayout.createSequentialGroup()
                                 .addComponent(coughYesButton)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                 .addComponent(coughNoButton))
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, questionsPanelsLayout.createSequentialGroup()
                                 .addComponent(nodesYesButton)
@@ -347,7 +354,7 @@ public class PatientInfoPanel extends javax.swing.JPanel {
                     .addComponent(tonsilsNoButton)
                     .addComponent(tonsilsYesButton)
                     .addComponent(tonsilsLabel))
-                .addContainerGap(135, Short.MAX_VALUE))
+                .addContainerGap(62, Short.MAX_VALUE))
         );
 
         add(questionsPanels, java.awt.BorderLayout.PAGE_START);
@@ -474,7 +481,7 @@ public class PatientInfoPanel extends javax.swing.JPanel {
             
             
             
-            String fact = "(Patient (fever "+fever+") (exudate "+exhudate+") (s-spleen "+sSpleen+") (cough "+
+            String fact = "(Patient (fever "+fever+") (exudate "+exhudate+") (s-nodes "+sNodes+") (cough "+
                     cough+") (fatigue "+fatigue+") (swallowing "+swallowing+") (s-spleen "+sSpleen+") (s-tonsils "+sTonsils+"))";
             clips.assertString(fact);
             
@@ -489,10 +496,12 @@ public class PatientInfoPanel extends javax.swing.JPanel {
             System.out.println("Getiting diagnosis");
             FactAddressValue fv = clips.findFact("Patient"); //only one fact actually
             String decisionComputed = (fv.getSlotValue("decision_computed")).toString();
-            if(decisionComputed != "TRUE"){
+            if(!decisionComputed.equals("TRUE")){
                 //Show alert something went wrong
+                System.out.println("Decision not computed");
             }
             else{
+                System.out.println("Getting scores");
                 float scoreMono = Float.parseFloat((fv.getSlotValue("score-mono")).toString());
                 float scoreStrep = Float.parseFloat((fv.getSlotValue("score-strep")).toString());
                 float scoreViral= Float.parseFloat((fv.getSlotValue("score-viral")).toString());
@@ -506,6 +515,7 @@ public class PatientInfoPanel extends javax.swing.JPanel {
                 patient.addPathology(new Pathology("Pharyngeal cancer", scoreCancer));
                 patient.addPathology(new Pathology("Foreign body", scoreBody));
                 patient.addPathology(new Pathology("Peritonsillar abscess", scoreAbscess));
+
             }
         } catch (CLIPSException ex) {
             Logger.getLogger(PatientInfoPanel.class.getName()).log(Level.SEVERE, null, ex);
@@ -518,7 +528,7 @@ public class PatientInfoPanel extends javax.swing.JPanel {
     private void changePanel(){
         Container container = this.getParent();
         container.removeAll();
-        PanelTonto panel = new PanelTonto();
+        DiagnosisPanel panel = new DiagnosisPanel(patient);
         container.add(panel);
         container.revalidate();
         container.repaint();
@@ -545,6 +555,7 @@ public class PatientInfoPanel extends javax.swing.JPanel {
     private javax.swing.JLabel feverLabel;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JButton nextButton;
     private javax.swing.ButtonGroup nodesGroup;
