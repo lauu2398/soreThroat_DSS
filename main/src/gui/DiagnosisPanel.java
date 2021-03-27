@@ -69,22 +69,22 @@ public class DiagnosisPanel extends javax.swing.JPanel {
        //Seria mejor que fuera otro mapa
        switch (pathology) {
            case "Mononucleosis":
-               recomendation="ESTO ES UNA PRUEBA ";
+               recomendation="The patient should have a large intake of fluids along with acetaminophen therapy to control fever and pain.  ";
                break;
            case "Strep throat":
-               recomendation= " ";
+               recomendation= "The patient should take antibiotics and antiinflamatory therapy along with acetaminophen for fever.";
                break;
            case "Viral Pharingitis":
-               recomendation= " ";
+               recomendation= "The patient should have an intake of fluids along with acetaminophen therapy to control fever and pain. ";
                break;
            case "Pharyngeal cancer":
-               recomendation= " ";
+               recomendation= "The patient should have an appointment with an oncology as soon as possible to make a biopsy of the suspicious tissue in order to make a diagnosis.";
                break;
            case "Foreign body":
-               recomendation= " ";
+               recomendation= "The patient should go as soon as possible to a medical center to be attended byy a phisician in order to get the foreign body extracted.";
                break;
            case "Peritonsillar abscess":
-               recomendation= " ";
+               recomendation= "The patient should take antibiotics and antiinflamatory therapy.";
                break;
            default:
                break;
