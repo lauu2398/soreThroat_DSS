@@ -5,9 +5,11 @@
  */
 package gui;
 
+import java.awt.Container;
 import java.util.HashMap;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.SwingUtilities;
 import javax.swing.table.DefaultTableModel;
 import net.sf.clipsrules.jni.*;
 
@@ -19,59 +21,66 @@ public class DiagnosisPanel extends javax.swing.JPanel {
     
      
    DefaultTableModel scoreTable;
+    private Environment clips;
+    private Patient patient; 
+    private boolean isExecuting = false; 
+    Thread executionThread;
+    private String recomendation;
 
+   
     /**
      * Creates new form DiagnosisPanel
      */
     public DiagnosisPanel() {
         initComponents();
-    }
-    
-    public DiagnosisPanel(Patient p){
-        initComponents();
-        // TODO
-        Pathology pathology= new Pathology();
-        HashMap recomendation= new HashMap<>();
+       
         //solo he pensado
         
         //Coger todos los scores para mostrarlos en la tabla
         // FactAddressValue pathology = clips.findFact("-----");
         
         //Coger la pathology que salga de CLIPS con el score
-        
+        scoreTable=new DefaultTableModel();
         scoreTable = (DefaultTableModel) jTable1.getModel();
-        scoreTable.addRow(new Object[]{"pathology", "score"});  
-        scoreTable.addRow(new Object[]{"pathology", "score"}); 
-        scoreTable.addRow(new Object[]{"pathology", "score"}); 
-        scoreTable.addRow(new Object[]{"pathology", "score"}); 
-        scoreTable.addRow(new Object[]{"pathology", "score"}); 
-        scoreTable.addRow(new Object[]{"pathology", "score"}); 
+        for(int i=0; i<=patient.getPathologies().size(); i++){
+            scoreTable.addRow(new Object[]{patient.getPathologies()}); 
+            
+        }        //wineList.addRow(new Object[] { wineName, new Integer(certainty) });
+        
+        
+       String pathology= (String) patient.getPathologies().first(); 
         // String score = pathology.getScore("score").toString();
         //System.out.println(" Score Mono: " + score);
-        //new DefaultTableModel();
-        //scoreTable.addRow("-----")
-        //wineList.addRow(new Object[] { wineName, new Integer(certainty) });
-        
-        //mapa para mostrar cada enfermedad muestre su mensaje
-       
-         
-        // Map Inicialization 
-        recomendation.put("Pharingitis", "Te estas muriendo"); 
-        recomendation.put("Mononucleosis", "Mueres un poco mas");
-        recomendation.put("Strep", "Mueres mucho");
-        recomendation.put("Pharyngeal cancer", "Mueres muchisimo");
-        recomendation.put("abscess", "Ya te has muerto");
-        recomendation.put("Fbody", "vives, ten cuidado");
-        
-        
-        //Show only the highest key value 
-      
-        System.out.println(" Recomendation: " + recomendation.get("Mononucleosis"));
-        Message_TextArea.setText((String) recomendation.get("Mononucleosis"));
+       //Seria mejor que fuera otro mapa
+       switch (pathology) {
+           case "Mononucleosis":
+               recomendation=" ";
+               break;
+           case "Strep throat":
+               recomendation= " ";
+               break;
+           case "Viral Pharingitis":
+               recomendation= " ";
+               break;
+           case "Pharyngeal cancer":
+               recomendation= " ";
+               break;
+           case "Foreign body":
+               recomendation= " ";
+               break;
+           case "Peritonsillar abscess":
+               recomendation= " ";
+               break;
+           default:
+               break;
+       }
+    
+        System.out.println(" Recomendation: " + recomendation);
+        Message_TextArea.setText((String) recomendation);
         Message_TextArea.setLineWrap(true);   
     }
         
-    
+
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -168,9 +177,47 @@ public class DiagnosisPanel extends javax.swing.JPanel {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+             if (isExecuting) return;
+        //reset clips
+        //crear thread de clips + callback (update diagnosis)
+        Runnable clipsThread  = new Runnable() {
+            public void run() {
+                try {
+                    clips.run();
+                } catch (CLIPSException e) {
+                    e.printStackTrace();
+                }
+                
+                SwingUtilities.invokeLater(
+                        new Runnable() {
+                            public void run() {
+                                try {
+                                    changePanel();
+                                } catch (Exception e) {
+                                    e.printStackTrace();
+                                }
+                            }});
+            };
+        };
+        isExecuting = true;
+        executionThread = new Thread(clipsThread);
+        executionThread.start();
         
+        //cambio panel
+   
+    
     }//GEN-LAST:event_jButton2ActionPerformed
-
+private void changePanel(){
+        Container container = this.getParent();
+        container.removeAll();
+        PatientInfoPanel panel = new PatientInfoPanel();
+        container.add(panel);
+        container.revalidate();
+        container.repaint();
+        panel.setVisible(true);
+        
+    }
+   
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTextArea Message_TextArea;

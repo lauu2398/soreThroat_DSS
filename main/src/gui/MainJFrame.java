@@ -43,7 +43,6 @@ public class MainJFrame extends javax.swing.JFrame {
 
         tabbedPane = new javax.swing.JTabbedPane();
         DiagnosisPanel = new javax.swing.JPanel();
-        jLabel9 = new javax.swing.JLabel();
         infoTabbedPanel = new javax.swing.JTabbedPane();
         viralPahel = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
@@ -92,24 +91,15 @@ public class MainJFrame extends javax.swing.JFrame {
             }
         });
 
-        jLabel9.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/patientsIcon.PNG"))); // NOI18N
-        jLabel9.setText(" ");
-
         javax.swing.GroupLayout DiagnosisPanelLayout = new javax.swing.GroupLayout(DiagnosisPanel);
         DiagnosisPanel.setLayout(DiagnosisPanelLayout);
         DiagnosisPanelLayout.setHorizontalGroup(
             DiagnosisPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(DiagnosisPanelLayout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jLabel9)
-                .addContainerGap(848, Short.MAX_VALUE))
+            .addGap(0, 1027, Short.MAX_VALUE)
         );
         DiagnosisPanelLayout.setVerticalGroup(
             DiagnosisPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(DiagnosisPanelLayout.createSequentialGroup()
-                .addGap(26, 26, 26)
-                .addComponent(jLabel9)
-                .addContainerGap(482, Short.MAX_VALUE))
+            .addGap(0, 639, Short.MAX_VALUE)
         );
 
         tabbedPane.addTab("diagnosis", DiagnosisPanel);
@@ -463,7 +453,6 @@ public class MainJFrame extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
-    private javax.swing.JLabel jLabel9;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane3;
