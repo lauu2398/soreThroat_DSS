@@ -164,6 +164,7 @@ public class PatientInfoPanel extends javax.swing.JPanel {
 
         coughNoButton.setBackground(new java.awt.Color(180, 220, 210));
         coughGroup.add(coughNoButton);
+        coughNoButton.setSelected(true);
         coughNoButton.setText("No");
 
         coughLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -184,7 +185,13 @@ public class PatientInfoPanel extends javax.swing.JPanel {
 
         fatigueNoButton.setBackground(new java.awt.Color(180, 220, 210));
         fatigueGroup.add(fatigueNoButton);
+        fatigueNoButton.setSelected(true);
         fatigueNoButton.setText("No");
+        fatigueNoButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                fatigueNoButtonActionPerformed(evt);
+            }
+        });
 
         swallowYesButton.setBackground(new java.awt.Color(180, 220, 210));
         swallowGroup.add(swallowYesButton);
@@ -192,6 +199,7 @@ public class PatientInfoPanel extends javax.swing.JPanel {
 
         swallowNoButton.setBackground(new java.awt.Color(180, 220, 210));
         swallowGroup.add(swallowNoButton);
+        swallowNoButton.setSelected(true);
         swallowNoButton.setText("No");
 
         spleenYesButton.setBackground(new java.awt.Color(180, 220, 210));
@@ -200,6 +208,7 @@ public class PatientInfoPanel extends javax.swing.JPanel {
 
         spleenNoButton.setBackground(new java.awt.Color(180, 220, 210));
         spleenGroup.add(spleenNoButton);
+        spleenNoButton.setSelected(true);
         spleenNoButton.setText("No");
 
         tonsilsYesButton.setBackground(new java.awt.Color(180, 220, 210));
@@ -208,6 +217,7 @@ public class PatientInfoPanel extends javax.swing.JPanel {
 
         tonsilsNoButton.setBackground(new java.awt.Color(180, 220, 210));
         tonsilsGroup.add(tonsilsNoButton);
+        tonsilsNoButton.setSelected(true);
         tonsilsNoButton.setText("No");
 
         spleenLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -230,7 +240,7 @@ public class PatientInfoPanel extends javax.swing.JPanel {
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(53, 53, 53)
                 .addComponent(jLabel1)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 324, Short.MAX_VALUE)
                 .addComponent(jLabel2)
                 .addGap(90, 90, 90))
         );
@@ -266,14 +276,14 @@ public class PatientInfoPanel extends javax.swing.JPanel {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(swallowNoButton))
                     .addGroup(questionsPanelsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addGroup(questionsPanelsLayout.createSequentialGroup()
+                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, questionsPanelsLayout.createSequentialGroup()
                             .addComponent(fatigueYesButton)
-                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                             .addComponent(fatigueNoButton))
                         .addGroup(questionsPanelsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(questionsPanelsLayout.createSequentialGroup()
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, questionsPanelsLayout.createSequentialGroup()
                                 .addComponent(coughYesButton)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                 .addComponent(coughNoButton))
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, questionsPanelsLayout.createSequentialGroup()
                                 .addComponent(nodesYesButton)
@@ -388,6 +398,10 @@ public class PatientInfoPanel extends javax.swing.JPanel {
             ex.printStackTrace();
         }
     }//GEN-LAST:event_nextButtonActionPerformed
+
+    private void fatigueNoButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_fatigueNoButtonActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_fatigueNoButtonActionPerformed
 
     private void assertFacts(){
         String fever;

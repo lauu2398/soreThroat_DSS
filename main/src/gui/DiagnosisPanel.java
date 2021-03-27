@@ -7,6 +7,7 @@ package gui;
 
 import java.awt.Container;
 import java.util.HashMap;
+import java.util.TreeSet;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.SwingUtilities;
@@ -33,7 +34,65 @@ public class DiagnosisPanel extends javax.swing.JPanel {
      */
     public DiagnosisPanel() {
         initComponents();
+       /*
+        //solo he pensado
+        
+        //Coger todos los scores para mostrarlos en la tabla
+        // FactAddressValue pathology = clips.findFact("-----");
+        
+        //Coger la pathology que salga de CLIPS con el score
+        scoreTable=new DefaultTableModel();
+        scoreTable = (DefaultTableModel) jTable1.getModel();
+        for(int i=0; i<=patient.getPathologies().size(); i++){
+            scoreTable.addRow(new Object[]{patient.getPathologies()}); 
+            
+        }        //wineList.addRow(new Object[] { wineName, new Integer(certainty) });
+      
        
+     
+       float score= 1.2f; 
+       patient.addPathology(new Pathology("Peritonsillar abscess", score));
+       */
+       
+        //La tabla se rellena así y funciona
+      
+       scoreTable=new DefaultTableModel();
+       scoreTable = (DefaultTableModel) jTable1.getModel();
+       scoreTable.addRow(new Object[]{"Mononucleosis", "98"}); 
+       //String pathology= (String) patient.getPathologies().first(); 
+       String pathology ="Mononucleosis"; //Esto es una prueba se puede borrar
+       
+       
+        // String score = pathology.getScore("score").toString();
+        //System.out.println(" Score Mono: " + score);
+        
+       //Seria mejor que fuera otro mapa
+       switch (pathology) {
+           case "Mononucleosis":
+               recomendation="ESTO ES UNA PRUEBA ";
+               break;
+           case "Strep throat":
+               recomendation= " ";
+               break;
+           case "Viral Pharingitis":
+               recomendation= " ";
+               break;
+           case "Pharyngeal cancer":
+               recomendation= " ";
+               break;
+           case "Foreign body":
+               recomendation= " ";
+               break;
+           case "Peritonsillar abscess":
+               recomendation= " ";
+               break;
+           default:
+               break;
+       }
+    
+        System.out.println(" Recomendation: " + recomendation);
+        Message_TextArea.setText((String) recomendation);
+        Message_TextArea.setLineWrap(true);   
     }
         
 
@@ -133,7 +192,9 @@ public class DiagnosisPanel extends javax.swing.JPanel {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-             if (isExecuting) return;
+           
+        changePanel();
+        /* if (isExecuting) return;
         //reset clips
         //crear thread de clips + callback (update diagnosis)
         Runnable clipsThread  = new Runnable() {
@@ -160,7 +221,7 @@ public class DiagnosisPanel extends javax.swing.JPanel {
         executionThread.start();
         
         //cambio panel
-   
+   */
     
     }//GEN-LAST:event_jButton2ActionPerformed
 private void changePanel(){

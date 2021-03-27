@@ -262,7 +262,7 @@ public class MainJFrame extends javax.swing.JFrame {
                 .addContainerGap(202, Short.MAX_VALUE))
         );
 
-        infoTabbedPanel.addTab("pharyn", viralPahel3);
+        infoTabbedPanel.addTab("cancer", viralPahel3);
 
         viralPahel4.setBackground(new java.awt.Color(200, 230, 230));
 
@@ -308,7 +308,6 @@ public class MainJFrame extends javax.swing.JFrame {
 
         jTextArea6.setColumns(20);
         jTextArea6.setRows(5);
-        jTextArea6.setText("Pharyngitis, or sore throat, is swelling, discomfort, pain, or scratchiness in the throat at, \nand just below the tonsils.\n\nRisk Factors:\n\t- Cigarette smoking.\n\t- Lower immunity: stress, recent illness, chronic health condition, ...\n\t- Allergies.\nSymptoms:\n\t- Fever.\n\t- Dry cough.\n\t- Conjunctivitis.\n\t- Joint pain or muscle aches.\nTreatment:\n\t- Anti-inflammatory for controlling fever: over the counter pain medicine.\n\t- Throat lozenges.\n\t- Drink plenty of fluids.\n\n\n");
         jScrollPane6.setViewportView(jTextArea6);
 
         jLabel6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/gui/viralPharingitis.jpg"))); // NOI18N
@@ -344,7 +343,7 @@ public class MainJFrame extends javax.swing.JFrame {
                 .addContainerGap(196, Short.MAX_VALUE))
         );
 
-        infoTabbedPanel.addTab("viral", viralPahel5);
+        infoTabbedPanel.addTab("abscess", viralPahel5);
 
         tabbedPane.addTab("info", infoTabbedPanel);
 
