@@ -91,17 +91,7 @@ public class MainJFrame extends javax.swing.JFrame {
             }
         });
 
-        javax.swing.GroupLayout DiagnosisPanelLayout = new javax.swing.GroupLayout(DiagnosisPanel);
-        DiagnosisPanel.setLayout(DiagnosisPanelLayout);
-        DiagnosisPanelLayout.setHorizontalGroup(
-            DiagnosisPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 1027, Short.MAX_VALUE)
-        );
-        DiagnosisPanelLayout.setVerticalGroup(
-            DiagnosisPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 639, Short.MAX_VALUE)
-        );
-
+        DiagnosisPanel.setLayout(new java.awt.BorderLayout());
         tabbedPane.addTab("diagnosis", DiagnosisPanel);
 
         infoTabbedPanel.setBackground(new java.awt.Color(180, 220, 210));
@@ -390,12 +380,14 @@ public class MainJFrame extends javax.swing.JFrame {
     private void tabbedPaneStateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_tabbedPaneStateChanged
         JTabbedPane sourceTabbedPane = (JTabbedPane) evt.getSource();
         int index = sourceTabbedPane.getSelectedIndex();
+       
         if(sourceTabbedPane.getTitleAt(index).equals("diagnosis")){
             //add new JPanel: patient Info panel
             System.out.println("Hello");
             PatientInfoPanel patientInfoPanel = new PatientInfoPanel();
             DiagnosisPanel.removeAll();
             DiagnosisPanel.add(patientInfoPanel);
+            System.out.println("PSO");
             DiagnosisPanel.revalidate();
             DiagnosisPanel.repaint();
             patientInfoPanel.setVisible(true);

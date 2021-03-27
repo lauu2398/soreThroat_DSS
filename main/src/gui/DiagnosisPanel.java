@@ -34,50 +34,6 @@ public class DiagnosisPanel extends javax.swing.JPanel {
     public DiagnosisPanel() {
         initComponents();
        
-        //solo he pensado
-        
-        //Coger todos los scores para mostrarlos en la tabla
-        // FactAddressValue pathology = clips.findFact("-----");
-        
-        //Coger la pathology que salga de CLIPS con el score
-        scoreTable=new DefaultTableModel();
-        scoreTable = (DefaultTableModel) jTable1.getModel();
-        for(int i=0; i<=patient.getPathologies().size(); i++){
-            scoreTable.addRow(new Object[]{patient.getPathologies()}); 
-            
-        }        //wineList.addRow(new Object[] { wineName, new Integer(certainty) });
-        
-        
-       String pathology= (String) patient.getPathologies().first(); 
-        // String score = pathology.getScore("score").toString();
-        //System.out.println(" Score Mono: " + score);
-       //Seria mejor que fuera otro mapa
-       switch (pathology) {
-           case "Mononucleosis":
-               recomendation=" ";
-               break;
-           case "Strep throat":
-               recomendation= " ";
-               break;
-           case "Viral Pharingitis":
-               recomendation= " ";
-               break;
-           case "Pharyngeal cancer":
-               recomendation= " ";
-               break;
-           case "Foreign body":
-               recomendation= " ";
-               break;
-           case "Peritonsillar abscess":
-               recomendation= " ";
-               break;
-           default:
-               break;
-       }
-    
-        System.out.println(" Recomendation: " + recomendation);
-        Message_TextArea.setText((String) recomendation);
-        Message_TextArea.setLineWrap(true);   
     }
         
 

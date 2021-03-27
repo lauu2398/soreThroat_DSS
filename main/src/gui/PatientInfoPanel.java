@@ -515,7 +515,7 @@ public class PatientInfoPanel extends javax.swing.JPanel {
     private void changePanel(){
         Container container = this.getParent();
         container.removeAll();
-        PanelTonto panel = new PanelTonto();
+        DiagnosisPanel panel = new DiagnosisPanel();
         container.add(panel);
         container.revalidate();
         container.repaint();
