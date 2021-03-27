@@ -23,9 +23,7 @@ public class DiagnosisPanel extends javax.swing.JPanel {
     
      
    DefaultTableModel scoreTable;
-    private Environment clips;
     private Patient patient; 
-    private boolean isExecuting = false; 
     Thread executionThread;
     private String recomendation;
 
@@ -35,6 +33,7 @@ public class DiagnosisPanel extends javax.swing.JPanel {
      */
     public DiagnosisPanel(Patient patient) {
         initComponents();
+        this.patient = patient; 
        /*
         //solo he pensado
         
@@ -84,14 +83,14 @@ public class DiagnosisPanel extends javax.swing.JPanel {
            case "Strep throat":
                recomendation= "The patient should take antibiotics and antiinflamatory therapy along with acetaminophen for fever.";
                break;
-           case "Viral Pharingitis":
+           case "Viral pharyngitis":
                recomendation= "The patient should have an intake of fluids along with acetaminophen therapy to control fever and pain. ";
                break;
            case "Pharyngeal cancer":
                recomendation= "The patient should have an appointment with an oncology as soon as possible to make a biopsy of the suspicious tissue in order to make a diagnosis.";
                break;
            case "Foreign body":
-               recomendation= "The patient should go as soon as possible to a medical center to be attended byy a phisician in order to get the foreign body extracted.";
+               recomendation= "The patient should go as soon as possible to a medical center to be attended by a phisician in order to get the foreign body extracted.";
                break;
            case "Peritonsillar abscess":
                recomendation= "The patient should take antibiotics and antiinflamatory therapy.";
@@ -149,11 +148,14 @@ public class DiagnosisPanel extends javax.swing.JPanel {
                 "Pathology", "Score"
             }
         ));
+        jTable1.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        jTable1.setEnabled(false);
         jScrollPane1.setViewportView(jTable1);
 
         jLabel2.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jLabel2.setText("Recomendations:");
 
+        Message_TextArea.setEditable(false);
         Message_TextArea.setColumns(20);
         Message_TextArea.setFont(new java.awt.Font("sansserif", 0, 14)); // NOI18N
         Message_TextArea.setRows(5);
