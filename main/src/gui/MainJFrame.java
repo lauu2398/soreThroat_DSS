@@ -66,7 +66,6 @@ public class MainJFrame extends javax.swing.JFrame {
         viralPahel4 = new javax.swing.JPanel();
         jScrollPane5 = new javax.swing.JScrollPane();
         jTextArea5 = new javax.swing.JTextArea();
-        jLabel5 = new javax.swing.JLabel();
         jLabel11 = new javax.swing.JLabel();
         viralPahel5 = new javax.swing.JPanel();
         jScrollPane6 = new javax.swing.JScrollPane();
@@ -146,7 +145,7 @@ public class MainJFrame extends javax.swing.JFrame {
 
         jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/gui/viralPharingitis.jpg"))); // NOI18N
 
-        jLabel8.setIcon(new javax.swing.ImageIcon(getClass().getResource("/gui/mononuclosisPhoto.jpg"))); // NOI18N
+        jLabel8.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/mononuclosisPhoto.jpg"))); // NOI18N
 
         javax.swing.GroupLayout viralPahel1Layout = new javax.swing.GroupLayout(viralPahel1);
         viralPahel1.setLayout(viralPahel1Layout);
@@ -188,7 +187,7 @@ public class MainJFrame extends javax.swing.JFrame {
 
         jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/gui/viralPharingitis.jpg"))); // NOI18N
 
-        jLabel10.setIcon(new javax.swing.ImageIcon(getClass().getResource("/gui/strepThroat3.jpg"))); // NOI18N
+        jLabel10.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/strepThroat3.jpg"))); // NOI18N
 
         javax.swing.GroupLayout viralPahel2Layout = new javax.swing.GroupLayout(viralPahel2);
         viralPahel2.setLayout(viralPahel2Layout);
@@ -230,7 +229,7 @@ public class MainJFrame extends javax.swing.JFrame {
 
         jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/gui/viralPharingitis.jpg"))); // NOI18N
 
-        jLabel13.setIcon(new javax.swing.ImageIcon(getClass().getResource("/gui/pharyngealCancerPhoto.jpg"))); // NOI18N
+        jLabel13.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/pharyngealCancerPhoto.jpg"))); // NOI18N
         jLabel13.setText("jLabel13");
 
         javax.swing.GroupLayout viralPahel3Layout = new javax.swing.GroupLayout(viralPahel3);
@@ -273,9 +272,7 @@ public class MainJFrame extends javax.swing.JFrame {
         jTextArea5.setText("A foreign body in the airway (choking) constitutues a medical  emergency and requires immedite\nattention. The foreign body can get stuck in many different places within the airway.\n\nRisk factors:\n\t- Avoid small objects.\n\t- Most common in ages 2-8.\n\t- Occupation: nursery and school.\n\nSymptoms:\n\t- Throat redness.\n\t- Cough.\n\t- Trouble swallowing.\n\nTreatment:\n\t- Forceps may be used to grab the object.\n\t- Endoscopy.\n\t- Bougienage: pushing the object towards the stomach.\n\t- Balloon catheter: pulling the object out of the esophagus.\n\t- Surgery.");
         jScrollPane5.setViewportView(jTextArea5);
 
-        jLabel5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/gui/viralPharingitis.jpg"))); // NOI18N
-
-        jLabel11.setIcon(new javax.swing.ImageIcon(getClass().getResource("/gui/foreignBodyPhoto.jpg"))); // NOI18N
+        jLabel11.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/foreignBodyPhoto.jpg"))); // NOI18N
 
         javax.swing.GroupLayout viralPahel4Layout = new javax.swing.GroupLayout(viralPahel4);
         viralPahel4.setLayout(viralPahel4Layout);
@@ -286,18 +283,14 @@ public class MainJFrame extends javax.swing.JFrame {
                 .addComponent(jScrollPane5, javax.swing.GroupLayout.PREFERRED_SIZE, 465, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jLabel11, javax.swing.GroupLayout.PREFERRED_SIZE, 436, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 567, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(95, Short.MAX_VALUE))
         );
         viralPahel4Layout.setVerticalGroup(
             viralPahel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(viralPahel4Layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(viralPahel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(viralPahel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                        .addComponent(jScrollPane5, javax.swing.GroupLayout.DEFAULT_SIZE, 384, Short.MAX_VALUE)
-                        .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE))
+                    .addComponent(jScrollPane5, javax.swing.GroupLayout.PREFERRED_SIZE, 384, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel11, javax.swing.GroupLayout.PREFERRED_SIZE, 364, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(202, Short.MAX_VALUE))
         );
@@ -312,7 +305,7 @@ public class MainJFrame extends javax.swing.JFrame {
         jTextArea6.setRows(5);
         jScrollPane6.setViewportView(jTextArea6);
 
-        jLabel6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/gui/viralPharingitis.jpg"))); // NOI18N
+        jLabel6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/viralPharingitis.jpg"))); // NOI18N
 
         jLabel12.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/viralPharingitis2.jpg"))); // NOI18N
 
@@ -350,7 +343,7 @@ public class MainJFrame extends javax.swing.JFrame {
 
         jLabel1.setFont(new java.awt.Font("Comic Sans MS", 1, 18)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(75, 75, 75));
-        jLabel1.setText("\" Aquí pondríamos el nombre de la aplicacion o lo que sea...\"");
+        jLabel1.setText("Medask");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -441,7 +434,6 @@ public class MainJFrame extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
-    private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
