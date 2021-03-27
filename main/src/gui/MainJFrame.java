@@ -63,6 +63,7 @@ public class MainJFrame extends javax.swing.JFrame {
         jScrollPane4 = new javax.swing.JScrollPane();
         jTextArea4 = new javax.swing.JTextArea();
         jLabel4 = new javax.swing.JLabel();
+        jLabel13 = new javax.swing.JLabel();
         viralPahel4 = new javax.swing.JPanel();
         jScrollPane5 = new javax.swing.JScrollPane();
         jTextArea5 = new javax.swing.JTextArea();
@@ -72,6 +73,7 @@ public class MainJFrame extends javax.swing.JFrame {
         jScrollPane6 = new javax.swing.JScrollPane();
         jTextArea6 = new javax.swing.JTextArea();
         jLabel6 = new javax.swing.JLabel();
+        jLabel12 = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -119,7 +121,6 @@ public class MainJFrame extends javax.swing.JFrame {
         viralPahel.setBackground(new java.awt.Color(200, 230, 230));
 
         jTextArea1.setColumns(20);
-        jTextArea1.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jTextArea1.setRows(5);
         jTextArea1.setText("Pharyngitis, or sore throat, is swelling, discomfort, pain, or scratchiness in the throat at, \nand just below the tonsils.\n\nRisk Factors:\n\t- Cigarette smoking.\n\t- Lower immunity: stress, recent illness, chronic health condition, ...\n\t- Allergies.\nSymptoms:\n\t- Fever.\n\t- Dry cough.\n\t- Conjunctivitis.\n\t- Joint pain or muscle aches.\nTreatment:\n\t- Anti-inflammatory for controlling fever: over the counter pain medicine.\n\t- Throat lozenges.\n\t- Drink plenty of fluids.\n\n\n");
         jTextArea1.setSelectionColor(new java.awt.Color(180, 220, 210));
@@ -248,6 +249,9 @@ public class MainJFrame extends javax.swing.JFrame {
         jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/gui/viralPharingitis.jpg"))); // NOI18N
         jLabel4.setMaximumSize(new java.awt.Dimension(600, 409));
 
+        jLabel13.setIcon(new javax.swing.ImageIcon(getClass().getResource("/gui/pharyngealCancerPhoto.jpg"))); // NOI18N
+        jLabel13.setText("jLabel13");
+
         javax.swing.GroupLayout viralPahel3Layout = new javax.swing.GroupLayout(viralPahel3);
         viralPahel3.setLayout(viralPahel3Layout);
         viralPahel3Layout.setHorizontalGroup(
@@ -255,18 +259,27 @@ public class MainJFrame extends javax.swing.JFrame {
             .addGroup(viralPahel3Layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 465, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGap(28, 28, 28)
+                .addComponent(jLabel13, javax.swing.GroupLayout.PREFERRED_SIZE, 476, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(30, 30, 30)
                 .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 567, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         viralPahel3Layout.setVerticalGroup(
             viralPahel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(viralPahel3Layout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(viralPahel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jScrollPane4, javax.swing.GroupLayout.DEFAULT_SIZE, 384, Short.MAX_VALUE)
-                    .addComponent(jLabel4, javax.swing.GroupLayout.DEFAULT_SIZE, 0, Short.MAX_VALUE))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGroup(viralPahel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(viralPahel3Layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addGroup(viralPahel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(jScrollPane4, javax.swing.GroupLayout.DEFAULT_SIZE, 384, Short.MAX_VALUE)
+                            .addGroup(viralPahel3Layout.createSequentialGroup()
+                                .addGap(243, 243, 243)
+                                .addComponent(jLabel4, javax.swing.GroupLayout.DEFAULT_SIZE, 0, Short.MAX_VALUE))))
+                    .addGroup(viralPahel3Layout.createSequentialGroup()
+                        .addGap(69, 69, 69)
+                        .addComponent(jLabel13, javax.swing.GroupLayout.PREFERRED_SIZE, 296, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(202, Short.MAX_VALUE))
         );
 
         infoTabbedPanel.addTab("pharyn", viralPahel3);
@@ -314,13 +327,14 @@ public class MainJFrame extends javax.swing.JFrame {
         viralPahel5.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED, java.awt.Color.white, java.awt.Color.white, java.awt.Color.white, java.awt.Color.white));
 
         jTextArea6.setColumns(20);
-        jTextArea6.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jTextArea6.setRows(5);
         jTextArea6.setText("Pharyngitis, or sore throat, is swelling, discomfort, pain, or scratchiness in the throat at, \nand just below the tonsils.\n\nRisk Factors:\n\t- Cigarette smoking.\n\t- Lower immunity: stress, recent illness, chronic health condition, ...\n\t- Allergies.\nSymptoms:\n\t- Fever.\n\t- Dry cough.\n\t- Conjunctivitis.\n\t- Joint pain or muscle aches.\nTreatment:\n\t- Anti-inflammatory for controlling fever: over the counter pain medicine.\n\t- Throat lozenges.\n\t- Drink plenty of fluids.\n\n\n");
         jScrollPane6.setViewportView(jTextArea6);
 
         jLabel6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/gui/viralPharingitis.jpg"))); // NOI18N
         jLabel6.setMaximumSize(new java.awt.Dimension(600, 409));
+
+        jLabel12.setIcon(new javax.swing.ImageIcon(getClass().getResource("/gui/viralPharingitis2.jpg"))); // NOI18N
 
         javax.swing.GroupLayout viralPahel5Layout = new javax.swing.GroupLayout(viralPahel5);
         viralPahel5.setLayout(viralPahel5Layout);
@@ -329,18 +343,25 @@ public class MainJFrame extends javax.swing.JFrame {
             .addGroup(viralPahel5Layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jScrollPane6, javax.swing.GroupLayout.PREFERRED_SIZE, 465, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGap(44, 44, 44)
+                .addComponent(jLabel12, javax.swing.GroupLayout.PREFERRED_SIZE, 356, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(70, 70, 70)
                 .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 567, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         viralPahel5Layout.setVerticalGroup(
             viralPahel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(viralPahel5Layout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(viralPahel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jScrollPane6, javax.swing.GroupLayout.DEFAULT_SIZE, 384, Short.MAX_VALUE)
-                    .addComponent(jLabel6, javax.swing.GroupLayout.DEFAULT_SIZE, 0, Short.MAX_VALUE))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGroup(viralPahel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(viralPahel5Layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addGroup(viralPahel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(jScrollPane6, javax.swing.GroupLayout.DEFAULT_SIZE, 384, Short.MAX_VALUE)
+                            .addComponent(jLabel6, javax.swing.GroupLayout.DEFAULT_SIZE, 0, Short.MAX_VALUE)))
+                    .addGroup(viralPahel5Layout.createSequentialGroup()
+                        .addGap(66, 66, 66)
+                        .addComponent(jLabel12, javax.swing.GroupLayout.PREFERRED_SIZE, 292, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(196, Short.MAX_VALUE))
         );
 
         infoTabbedPanel.addTab("viral", viralPahel5);
@@ -433,6 +454,8 @@ public class MainJFrame extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
+    private javax.swing.JLabel jLabel12;
+    private javax.swing.JLabel jLabel13;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
