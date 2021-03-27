@@ -9,6 +9,7 @@ import java.awt.Container;
 import java.io.FileNotFoundException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.JFrame;
 import javax.swing.SwingUtilities;
 import net.sf.clipsrules.jni.CLIPSException;
 import net.sf.clipsrules.jni.Environment;
@@ -30,10 +31,12 @@ public class PatientInfoPanel extends javax.swing.JPanel {
      * Creates new form PatientInfoPanel
      */
     public PatientInfoPanel() {
+        System.out.println("Panel info paciente");
         initComponents();
         clips = new Environment();
         try {
             clips.loadFromResource("/resources/inferenceEngine_ThroatPath.clp");
+            this.setVisible(true);
         } catch (CLIPSException e) {
             //Maybe show alert
             e.printStackTrace();
@@ -111,7 +114,7 @@ public class PatientInfoPanel extends javax.swing.JPanel {
         buttonPanelLayout.setHorizontalGroup(
             buttonPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, buttonPanelLayout.createSequentialGroup()
-                .addContainerGap(772, Short.MAX_VALUE)
+                .addContainerGap(729, Short.MAX_VALUE)
                 .addComponent(nextButton)
                 .addContainerGap())
         );
@@ -164,6 +167,7 @@ public class PatientInfoPanel extends javax.swing.JPanel {
 
         coughNoButton.setBackground(new java.awt.Color(180, 220, 210));
         coughGroup.add(coughNoButton);
+        coughNoButton.setSelected(true);
         coughNoButton.setText("No");
 
         coughLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -184,6 +188,7 @@ public class PatientInfoPanel extends javax.swing.JPanel {
 
         fatigueNoButton.setBackground(new java.awt.Color(180, 220, 210));
         fatigueGroup.add(fatigueNoButton);
+        fatigueNoButton.setSelected(true);
         fatigueNoButton.setText("No");
 
         swallowYesButton.setBackground(new java.awt.Color(180, 220, 210));
@@ -192,6 +197,7 @@ public class PatientInfoPanel extends javax.swing.JPanel {
 
         swallowNoButton.setBackground(new java.awt.Color(180, 220, 210));
         swallowGroup.add(swallowNoButton);
+        swallowNoButton.setSelected(true);
         swallowNoButton.setText("No");
 
         spleenYesButton.setBackground(new java.awt.Color(180, 220, 210));
@@ -200,6 +206,7 @@ public class PatientInfoPanel extends javax.swing.JPanel {
 
         spleenNoButton.setBackground(new java.awt.Color(180, 220, 210));
         spleenGroup.add(spleenNoButton);
+        spleenNoButton.setSelected(true);
         spleenNoButton.setText("No");
 
         tonsilsYesButton.setBackground(new java.awt.Color(180, 220, 210));
@@ -208,6 +215,7 @@ public class PatientInfoPanel extends javax.swing.JPanel {
 
         tonsilsNoButton.setBackground(new java.awt.Color(180, 220, 210));
         tonsilsGroup.add(tonsilsNoButton);
+        tonsilsNoButton.setSelected(true);
         tonsilsNoButton.setText("No");
 
         spleenLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -220,7 +228,6 @@ public class PatientInfoPanel extends javax.swing.JPanel {
         jLabel1.setText("Patient's regarding information:");
         jLabel1.setAutoscrolls(true);
 
-        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/Imagen1.png"))); // NOI18N
         jLabel2.setText(" ");
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
@@ -390,100 +397,96 @@ public class PatientInfoPanel extends javax.swing.JPanel {
     }//GEN-LAST:event_nextButtonActionPerformed
 
     private void assertFacts(){
-        String fever;
-        String exhudate;
-        String sNodes;
-        String sSpleen;
-        String sTonsils;
-        String cough;
-        String fatigue;
-        String swallowing;
-        /*
-        fever = feverComboBox.getSelectedItem().toString();
-        if (fever.toLowerCase().equals("high") fever = h;
-        if (fever.toLowerCase().equals("mild") fever = m;
-        if (fever.toLowerCase().equals("no") fever = n;
-        String exhudate;
-        String sNodes;
-        String sSpleen;
-        String sTonsils;
-        Stirng cough;
-        String fatigue;
-        String swallowing;
-        
-        if(exhudateYesButton.isSelected()){
-            exhudate = y;
-        } 
-        else {
-            exhudate= n;
-        } 
-        
-        
-        if(sNodesYesButton.isSelected()){
-            sNodes = y;
+        try {
+            String fever;
+            String exhudate;
+            String sNodes;
+            String sSpleen;
+            String sTonsils;
+            String cough;
+            String fatigue;
+            String swallowing;
+            
+            fever = feverComboBox.getSelectedItem().toString();
+            if (fever.toLowerCase().equals("high")) fever = "h";
+            else
+                if (fever.toLowerCase().equals("mild")) fever = "m";
+                else fever = "n";
+            
+            
+            if(exhudateYesButton.isSelected()){
+                exhudate = "y";
+            }
+            else {
+                exhudate= "n";
+            }
+            
+            
+            if(nodesYesButton.isSelected()){
+                sNodes = "y";
+            }
+            else {
+                sNodes = "n";
+            }
+            
+            
+            if(spleenYesButton.isSelected()) {
+                sSpleen = "y";
+            }
+            else {
+                sSpleen = "n";
+            }
+            
+            
+            if(tonsilsYesButton.isSelected()) {
+                sTonsils = "y";
+            }
+            else {
+                sTonsils = "n";
+            }
+            
+            
+            if(coughYesButton.isSelected()) {
+                cough = "y";
+            }
+            else {
+                cough = "n";
+            }
+            
+            
+            if(fatigueYesButton.isSelected()){
+                fatigue = "y";
+            }
+            else{
+                fatigue = "n";
+            }
+            
+            if(swallowYesButton.isSelected()){
+                swallowing = "y";
+            }
+            else {
+                swallowing = "n";
+            }
+            
+            patient = new Patient(fever, exhudate, sNodes, cough, fatigue, swallowing, sSpleen, sTonsils);
+            System.out.println(patient);
+            
+            
+            
+            
+            String fact = "(Patient (fever "+fever+") (exudate "+exhudate+") (s-spleen "+sSpleen+") (cough "+
+                    cough+") (fatigue "+fatigue+") (swallowing "+swallowing+") (s-spleen "+sSpleen+") (s-tonsils "+sTonsils+"))";
+            clips.assertString(fact);
+            
+        } catch (CLIPSException ex) {
+            Logger.getLogger(PatientInfoPanel.class.getName()).log(Level.SEVERE, null, ex);
         }
-        else {
-            sNodes = n;
-        }
-        
-        
-        if(sSpleenYesButton.isSelected()) {
-            sSpleen = y;
-        } 
-        else {
-            sSpleen = n;
-        }
-        
-        
-        if(sTonsilsYesButton.isSelected()) {
-            sTonsils = y;
-        }
-        else {
-            sTonsils = n;
-        } 
-        
-        
-        if(coughYesButton.isSelected()) {
-            cough = y;
-        } 
-        else {
-            cough = n;
-        } 
-        
-        
-        if(fatigueyesButton.isSelected()){
-            fatigue = y;
-        }
-        else{
-            fatigue = n;
-        } 
-        
-        if(swallowingYesButton.isSelected()){
-            swallowing = y;
-        } 
-        else {
-            swallowing = n;
-        } 
-        
-        
-    */
-
-       /*
-        try{
-        String fact = "(Patient (fever "+fever+") (exudate "+exhudate+") (s-spleen "+sSpleen+") (cough "+
-                cough+") (fatigue "+fatigue+") (swallowing "+swallowing+") (s-spleen "+sSpleen+") (s-tonsils "+sTonsils+"))";
-          clips.assertString(fact);
-        
-        patient = new Patient(fever, exudate, sSpleen, cough, fatigue, swallowing, sSpleen, sTonsils);
-        }
-        */
-       
        
     }
 
     private void getDecision(){
-        //try {
-          /*  System.out.println("Getiting diagnosis");
+        try {
+            System.out.println("Getiting diagnosis");
             FactAddressValue fv = clips.findFact("Patient"); //only one fact actually
             String decisionComputed = (fv.getSlotValue("decision_computed")).toString();
             if(decisionComputed != "TRUE"){
@@ -506,7 +509,7 @@ public class PatientInfoPanel extends javax.swing.JPanel {
             }
         } catch (CLIPSException ex) {
             Logger.getLogger(PatientInfoPanel.class.getName()).log(Level.SEVERE, null, ex);
-        }*/
+        }
         
         isExecuting = false; 
          
@@ -522,6 +525,7 @@ public class PatientInfoPanel extends javax.swing.JPanel {
         panel.setVisible(true);
         
     }
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel buttonPanel;

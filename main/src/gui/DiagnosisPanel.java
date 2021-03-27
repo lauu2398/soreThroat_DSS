@@ -19,6 +19,8 @@ public class DiagnosisPanel extends javax.swing.JPanel {
     
      
    DefaultTableModel scoreTable;
+   private Patient patient; 
+   private HashMap<String,String> recomendations;
 
     /**
      * Creates new form DiagnosisPanel
@@ -31,7 +33,7 @@ public class DiagnosisPanel extends javax.swing.JPanel {
         initComponents();
         // TODO
         Pathology pathology= new Pathology();
-        HashMap recomendation= new HashMap<>();
+        recomendations= new HashMap<>();
         //solo he pensado
         
         //Coger todos los scores para mostrarlos en la tabla
@@ -40,7 +42,8 @@ public class DiagnosisPanel extends javax.swing.JPanel {
         //Coger la pathology que salga de CLIPS con el score
         
         scoreTable = (DefaultTableModel) jTable1.getModel();
-        scoreTable.addRow(new Object[]{"pathology", "score"});  
+        Pathology[] pathologies = (Pathology[]) patient.getPathologies().toArray();
+        scoreTable.addRow(new Object[]{pathologies[0].getName(), pathologies[0].getScore()});  
         scoreTable.addRow(new Object[]{"pathology", "score"}); 
         scoreTable.addRow(new Object[]{"pathology", "score"}); 
         scoreTable.addRow(new Object[]{"pathology", "score"}); 
@@ -56,18 +59,18 @@ public class DiagnosisPanel extends javax.swing.JPanel {
        
          
         // Map Inicialization 
-        recomendation.put("Pharingitis", "Te estas muriendo"); 
-        recomendation.put("Mononucleosis", "Mueres un poco mas");
-        recomendation.put("Strep", "Mueres mucho");
-        recomendation.put("Pharyngeal cancer", "Mueres muchisimo");
-        recomendation.put("abscess", "Ya te has muerto");
-        recomendation.put("Fbody", "vives, ten cuidado");
+        recomendations.put("Pharingitis", "Te estas muriendo"); 
+        recomendations.put("Mononucleosis", "Mueres un poco mas");
+        recomendations.put("Strep", "Mueres mucho");
+        recomendations.put("Pharyngeal cancer", "Mueres muchisimo");
+        recomendations.put("abscess", "Ya te has muerto");
+        recomendations.put("Fbody", "vives, ten cuidado");
         
         
         //Show only the highest key value 
       
-        System.out.println(" Recomendation: " + recomendation.get("Mononucleosis"));
-        Message_TextArea.setText((String) recomendation.get("Mononucleosis"));
+        System.out.println(" Recomendation: " + recomendations.get("Mononucleosis"));
+        Message_TextArea.setText((String) recomendations.get("Mononucleosis"));
         Message_TextArea.setLineWrap(true);   
     }
         

@@ -42,6 +42,19 @@ public class Patient {
         
         pathologies = new TreeSet<>();
     }
+
+    public Patient(String fever, String exudate, String s_node, String cough, String fatigue, String swallowing, String s_spleen, String s_tonsils) {
+        this.fever = fever;
+        this.exudate = exudate;
+        this.s_node = s_node;
+        this.cough = cough;
+        this.fatigue = fatigue;
+        this.swallowing = swallowing;
+        this.s_spleen = s_spleen;
+        this.s_tonsils = s_tonsils;
+        
+        pathologies = new TreeSet<>();
+    }
     
     
     

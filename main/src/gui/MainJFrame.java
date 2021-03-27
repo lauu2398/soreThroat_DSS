@@ -5,6 +5,7 @@
  */
 package gui;
 
+
 import java.io.FileNotFoundException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -26,8 +27,7 @@ public class MainJFrame extends javax.swing.JFrame {
      */
     public MainJFrame() {
         initComponents();
-        
-        
+        this.pack();
     }
     
     
@@ -43,7 +43,6 @@ public class MainJFrame extends javax.swing.JFrame {
 
         tabbedPane = new javax.swing.JTabbedPane();
         DiagnosisPanel = new javax.swing.JPanel();
-        jLabel9 = new javax.swing.JLabel();
         infoTabbedPanel = new javax.swing.JTabbedPane();
         viralPahel = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
@@ -87,24 +86,18 @@ public class MainJFrame extends javax.swing.JFrame {
             }
         });
 
-        jLabel9.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/patientsIcon.PNG"))); // NOI18N
-        jLabel9.setText(" ");
+        DiagnosisPanel.setMinimumSize(new java.awt.Dimension(1030, 465));
+        DiagnosisPanel.setName("DiagnosisPanel"); // NOI18N
 
         javax.swing.GroupLayout DiagnosisPanelLayout = new javax.swing.GroupLayout(DiagnosisPanel);
         DiagnosisPanel.setLayout(DiagnosisPanelLayout);
         DiagnosisPanelLayout.setHorizontalGroup(
             DiagnosisPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(DiagnosisPanelLayout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jLabel9)
-                .addContainerGap(848, Short.MAX_VALUE))
+            .addGap(0, 1030, Short.MAX_VALUE)
         );
         DiagnosisPanelLayout.setVerticalGroup(
             DiagnosisPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(DiagnosisPanelLayout.createSequentialGroup()
-                .addGap(26, 26, 26)
-                .addComponent(jLabel9)
-                .addContainerGap(307, Short.MAX_VALUE))
+            .addGap(0, 465, Short.MAX_VALUE)
         );
 
         tabbedPane.addTab("diagnosis", DiagnosisPanel);
@@ -146,7 +139,7 @@ public class MainJFrame extends javax.swing.JFrame {
                     .addGroup(viralPahelLayout.createSequentialGroup()
                         .addGap(67, 67, 67)
                         .addComponent(jLabel7)))
-                .addContainerGap(22, Short.MAX_VALUE))
+                .addContainerGap(37, Short.MAX_VALUE))
         );
 
         infoTabbedPanel.addTab("viral", viralPahel);
@@ -157,7 +150,6 @@ public class MainJFrame extends javax.swing.JFrame {
         jTextArea2.setRows(5);
         jScrollPane2.setViewportView(jTextArea2);
 
-        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/gui/viralPharingitis.jpg"))); // NOI18N
         jLabel2.setMaximumSize(new java.awt.Dimension(600, 409));
 
         javax.swing.GroupLayout viralPahel1Layout = new javax.swing.GroupLayout(viralPahel1);
@@ -189,7 +181,6 @@ public class MainJFrame extends javax.swing.JFrame {
         jTextArea3.setRows(5);
         jScrollPane3.setViewportView(jTextArea3);
 
-        jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/gui/viralPharingitis.jpg"))); // NOI18N
         jLabel3.setMaximumSize(new java.awt.Dimension(600, 409));
 
         javax.swing.GroupLayout viralPahel2Layout = new javax.swing.GroupLayout(viralPahel2);
@@ -221,7 +212,6 @@ public class MainJFrame extends javax.swing.JFrame {
         jTextArea4.setRows(5);
         jScrollPane4.setViewportView(jTextArea4);
 
-        jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/gui/viralPharingitis.jpg"))); // NOI18N
         jLabel4.setMaximumSize(new java.awt.Dimension(600, 409));
 
         javax.swing.GroupLayout viralPahel3Layout = new javax.swing.GroupLayout(viralPahel3);
@@ -253,7 +243,6 @@ public class MainJFrame extends javax.swing.JFrame {
         jTextArea5.setRows(5);
         jScrollPane5.setViewportView(jTextArea5);
 
-        jLabel5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/gui/viralPharingitis.jpg"))); // NOI18N
         jLabel5.setMaximumSize(new java.awt.Dimension(600, 409));
 
         javax.swing.GroupLayout viralPahel4Layout = new javax.swing.GroupLayout(viralPahel4);
@@ -288,7 +277,7 @@ public class MainJFrame extends javax.swing.JFrame {
         jTextArea6.setText("Pharyngitis, or sore throat, is swelling, discomfort, pain, or scratchiness in the throat at, \nand just below the tonsils.\n\nRisk Factors:\n\t- Cigarette smoking.\n\t- Lower immunity: stress, recent illness, chronic health condition, ...\n\t- Allergies.\nSymptoms:\n\t- Fever.\n\t- Dry cough.\n\t- Conjunctivitis.\n\t- Joint pain or muscle aches.\nTreatment:\n\t- Anti-inflammatory for controlling fever: over the counter pain medicine.\n\t- Throat lozenges.\n\t- Drink plenty of fluids.\n\n\n");
         jScrollPane6.setViewportView(jTextArea6);
 
-        jLabel6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/gui/viralPharingitis.jpg"))); // NOI18N
+        jLabel6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/viralPharingitis_fotoPequeña.PNG"))); // NOI18N
         jLabel6.setMaximumSize(new java.awt.Dimension(600, 409));
 
         javax.swing.GroupLayout viralPahel5Layout = new javax.swing.GroupLayout(viralPahel5);
@@ -297,19 +286,19 @@ public class MainJFrame extends javax.swing.JFrame {
             viralPahel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(viralPahel5Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jScrollPane6, javax.swing.GroupLayout.PREFERRED_SIZE, 465, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 567, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jScrollPane6, javax.swing.GroupLayout.PREFERRED_SIZE, 587, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 555, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         viralPahel5Layout.setVerticalGroup(
             viralPahel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(viralPahel5Layout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(viralPahel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jScrollPane6, javax.swing.GroupLayout.DEFAULT_SIZE, 384, Short.MAX_VALUE)
-                    .addComponent(jLabel6, javax.swing.GroupLayout.DEFAULT_SIZE, 0, Short.MAX_VALUE))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGroup(viralPahel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jScrollPane6)
+                    .addComponent(jLabel6, javax.swing.GroupLayout.DEFAULT_SIZE, 409, Short.MAX_VALUE))
+                .addContainerGap())
         );
 
         infoTabbedPanel.addTab("viral", viralPahel5);
@@ -352,11 +341,14 @@ public class MainJFrame extends javax.swing.JFrame {
             //add new JPanel: patient Info panel
             System.out.println("Hello");
             PatientInfoPanel patientInfoPanel = new PatientInfoPanel();
+            //PanelTonto patientInfoPanel = new PanelTonto();
             DiagnosisPanel.removeAll();
             DiagnosisPanel.add(patientInfoPanel);
             DiagnosisPanel.revalidate();
             DiagnosisPanel.repaint();
-            patientInfoPanel.setVisible(true);
+
+            //patientInfoPanel.setVisible(true);
+            DiagnosisPanel.setVisible(true);
         }
         System.out.println("Tab changed to: " + sourceTabbedPane.getTitleAt(index));        // TODO add your handling code here:
     }//GEN-LAST:event_tabbedPaneStateChanged
@@ -392,6 +384,7 @@ public class MainJFrame extends javax.swing.JFrame {
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
                 new MainJFrame().setVisible(true);
+                
             }
         });
     }
@@ -406,7 +399,6 @@ public class MainJFrame extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
-    private javax.swing.JLabel jLabel9;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane3;
