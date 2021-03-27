@@ -93,6 +93,7 @@ public class PatientInfoPanel extends javax.swing.JPanel {
         jPanel1 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
+        jLabel3 = new javax.swing.JLabel();
 
         setLayout(new java.awt.BorderLayout());
 
@@ -233,6 +234,9 @@ public class PatientInfoPanel extends javax.swing.JPanel {
         jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/Imagen1.png"))); // NOI18N
         jLabel2.setText(" ");
 
+        jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/lupaIcon.png"))); // NOI18N
+        jLabel3.setText(" ");
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -242,6 +246,8 @@ public class PatientInfoPanel extends javax.swing.JPanel {
                 .addComponent(jLabel1)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 324, Short.MAX_VALUE)
                 .addComponent(jLabel2)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jLabel3)
                 .addGap(90, 90, 90))
         );
         jPanel1Layout.setVerticalGroup(
@@ -250,7 +256,8 @@ public class PatientInfoPanel extends javax.swing.JPanel {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel1)
-                    .addComponent(jLabel2))
+                    .addComponent(jLabel2)
+                    .addComponent(jLabel3))
                 .addGap(19, 19, 19))
         );
 
@@ -350,7 +357,7 @@ public class PatientInfoPanel extends javax.swing.JPanel {
                     .addComponent(tonsilsNoButton)
                     .addComponent(tonsilsYesButton)
                     .addComponent(tonsilsLabel))
-                .addContainerGap(135, Short.MAX_VALUE))
+                .addContainerGap(62, Short.MAX_VALUE))
         );
 
         add(questionsPanels, java.awt.BorderLayout.PAGE_START);
@@ -555,6 +562,7 @@ public class PatientInfoPanel extends javax.swing.JPanel {
     private javax.swing.JLabel feverLabel;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JButton nextButton;
     private javax.swing.ButtonGroup nodesGroup;
