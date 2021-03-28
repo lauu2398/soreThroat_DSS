@@ -10,6 +10,7 @@ import java.io.FileNotFoundException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JFrame;
+import javax.swing.JOptionPane;
 import javax.swing.SwingUtilities;
 import net.sf.clipsrules.jni.CLIPSException;
 import net.sf.clipsrules.jni.Environment;
@@ -39,11 +40,14 @@ public class PatientInfoPanel extends javax.swing.JPanel {
             this.setVisible(true);
         } catch (CLIPSException e) {
             //Maybe show alert
-            e.printStackTrace();
+              JOptionPane.showMessageDialog(this, "Exiting application","CLIPS ERROR",
+                        JOptionPane.ERROR_MESSAGE);
              System.out.println("Exiting");
             System.exit(1);
         } catch (FileNotFoundException ex) {
             Logger.getLogger(MainJFrame.class.getName()).log(Level.SEVERE, null, ex);
+             JOptionPane.showMessageDialog(this, "Could not load the CLIPS file...Bye","CLIPS ERROR",
+                        JOptionPane.ERROR_MESSAGE);
             System.out.println("Exiting");
             System.exit(1);
         }
@@ -368,7 +372,7 @@ public class PatientInfoPanel extends javax.swing.JPanel {
             patient = new Patient();
             //assert facts: get all info
             assertFacts();
-            //crear thread de clips + callback (update diagnosis)
+            //Clips thread + callback (update diagnosis)
             Runnable clipsThread
                     = new Runnable() {
                 public void run() {
@@ -382,6 +386,7 @@ public class PatientInfoPanel extends javax.swing.JPanel {
                             new Runnable() {
                         public void run() {
                             try { 
+                                //add diagnosis info to patient and change panel
                                 getDecision();
                                 changePanel();
                             } catch (Exception e) {
@@ -396,10 +401,11 @@ public class PatientInfoPanel extends javax.swing.JPanel {
       
         executionThread.start();
 
-            //cambio panel
+           
         } catch (CLIPSException ex) {
             Logger.getLogger(PatientInfoPanel.class.getName()).log(Level.SEVERE, null, ex);
-            ex.printStackTrace();
+             JOptionPane.showMessageDialog(this, "Error running CLIPS","CLIPS ERROR",
+                        JOptionPane.ERROR_MESSAGE);
         }
     }//GEN-LAST:event_nextButtonActionPerformed
 
@@ -476,10 +482,7 @@ public class PatientInfoPanel extends javax.swing.JPanel {
             }
             
             patient = new Patient(fever, exhudate, sNodes, cough, fatigue, swallowing, sSpleen, sTonsils);
-            System.out.println(patient);
-            
-            
-            
+                  
             
             String fact = "(Patient (fever "+fever+") (exudate "+exhudate+") (s-nodes "+sNodes+") (cough "+
                     cough+") (fatigue "+fatigue+") (swallowing "+swallowing+") (s-spleen "+sSpleen+") (s-tonsils "+sTonsils+"))";
@@ -487,6 +490,8 @@ public class PatientInfoPanel extends javax.swing.JPanel {
             
         } catch (CLIPSException ex) {
             Logger.getLogger(PatientInfoPanel.class.getName()).log(Level.SEVERE, null, ex);
+             JOptionPane.showMessageDialog(this, "Error asserting patient's information","CLIPS ERROR",
+                        JOptionPane.ERROR_MESSAGE);
         }
        
     }
@@ -497,8 +502,8 @@ public class PatientInfoPanel extends javax.swing.JPanel {
             FactAddressValue fv = clips.findFact("Patient"); //only one fact actually
             String decisionComputed = (fv.getSlotValue("decision_computed")).toString();
             if(!decisionComputed.equals("TRUE")){
-                //Show alert something went wrong
-                System.out.println("Decision not computed");
+                JOptionPane.showMessageDialog(this, "Diagnosis decision not computed","CLIPS ERROR",
+                        JOptionPane.ERROR_MESSAGE);
             }
             else{
                 System.out.println("Getting scores");
@@ -519,6 +524,9 @@ public class PatientInfoPanel extends javax.swing.JPanel {
             }
         } catch (CLIPSException ex) {
             Logger.getLogger(PatientInfoPanel.class.getName()).log(Level.SEVERE, null, ex);
+            JOptionPane.showMessageDialog(this, "Error trying to retrieve the diagnosis information","CLIPS ERROR",
+                        JOptionPane.ERROR_MESSAGE);
+
         }
         
         isExecuting = false; 

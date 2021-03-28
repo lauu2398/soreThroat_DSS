@@ -6,14 +6,9 @@
 package gui;
 
 import java.awt.Container;
-import java.util.HashMap;
 import java.util.Iterator;
-import java.util.TreeSet;
-import java.util.logging.Level;
-import java.util.logging.Logger;
-import javax.swing.SwingUtilities;
 import javax.swing.table.DefaultTableModel;
-import net.sf.clipsrules.jni.*;
+
 
 /**
  *
@@ -22,7 +17,8 @@ import net.sf.clipsrules.jni.*;
 public class DiagnosisPanel extends javax.swing.JPanel {
     
      
-   DefaultTableModel scoreTable;
+    DefaultTableModel scoreTable;
+    //patient never read but just in case we want another method to save the paatient to a file or whatever further functionality that we would like to add
     private Patient patient; 
     Thread executionThread;
     private String recomendation;
@@ -34,31 +30,13 @@ public class DiagnosisPanel extends javax.swing.JPanel {
     public DiagnosisPanel(Patient patient) {
         initComponents();
         this.patient = patient; 
-       /*
-        //solo he pensado
-        
-        //Coger todos los scores para mostrarlos en la tabla
-        // FactAddressValue pathology = clips.findFact("-----");
-        
-        //Coger la pathology que salga de CLIPS con el score
-        scoreTable=new DefaultTableModel();
-        scoreTable = (DefaultTableModel) jTable1.getModel();
-        for(int i=0; i<=patient.getPathologies().size(); i++){
-            scoreTable.addRow(new Object[]{patient.getPathologies()}); 
-            
-        }        //wineList.addRow(new Object[] { wineName, new Integer(certainty) });
-      
+  
        
-     
-       float score= 1.2f; 
-       patient.addPathology(new Pathology("Peritonsillar abscess", score));
-       */
-       
-        //La tabla se rellena así y funciona
+        //Adding diagnosis and scores to the table
       
        scoreTable=new DefaultTableModel();
        scoreTable = (DefaultTableModel) jTable1.getModel();
-       //scoreTable.addRow(new Object[]{"Mononucleosis", "98"}); 
+       
        Pathology path; 
        Iterator<Pathology> it = patient.getPathologies().iterator();
        
@@ -69,13 +47,9 @@ public class DiagnosisPanel extends javax.swing.JPanel {
        
        path = (Pathology) patient.getPathologies().first();
        String pathology= path.getName(); 
-       //String pathology ="Mononucleosis"; //Esto es una prueba se puede borrar
-       
-       
-        // String score = pathology.getScore("score").toString();
-        //System.out.println(" Score Mono: " + score);
+      
         
-       //Seria mejor que fuera otro mapa
+       //Adding recommendation based on most probable diagnosis
        switch (pathology) {
            case "Mononucleosis":
                recomendation="The patient should have a large intake of fluids along with acetaminophen therapy to control fever and pain.  ";
@@ -206,34 +180,6 @@ public class DiagnosisPanel extends javax.swing.JPanel {
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
            
         changePanel();
-        /* if (isExecuting) return;
-        //reset clips
-        //crear thread de clips + callback (update diagnosis)
-        Runnable clipsThread  = new Runnable() {
-            public void run() {
-                try {
-                    clips.run();
-                } catch (CLIPSException e) {
-                    e.printStackTrace();
-                }
-                
-                SwingUtilities.invokeLater(
-                        new Runnable() {
-                            public void run() {
-                                try {
-                                    changePanel();
-                                } catch (Exception e) {
-                                    e.printStackTrace();
-                                }
-                            }});
-            };
-        };
-        isExecuting = true;
-        executionThread = new Thread(clipsThread);
-        executionThread.start();
-        
-        //cambio panel
-   */
     
     }//GEN-LAST:event_jButton2ActionPerformed
 private void changePanel(){
