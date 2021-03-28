@@ -73,7 +73,6 @@ public class DiagnosisPanel extends javax.swing.JPanel {
                break;
        }
     
-        System.out.println(" Recomendation: " + recomendation);
         Message_TextArea.setText((String) recomendation);
         Message_TextArea.setLineWrap(true);   
     }

@@ -357,17 +357,13 @@ public class MainJFrame extends javax.swing.JFrame {
        
         if(sourceTabbedPane.getTitleAt(index).equals("diagnosis")){
             //add new JPanel: patient Info panel
-            System.out.println("Hello");
             PatientInfoPanel patientInfoPanel = new PatientInfoPanel();
             DiagnosisPanel.removeAll();
             DiagnosisPanel.add(patientInfoPanel);
-            System.out.println("PSO");
             DiagnosisPanel.revalidate();
             DiagnosisPanel.repaint();
             patientInfoPanel.setVisible(true);
-            //DiagnosisPanel.setVisible(true);
         }
-        System.out.println("Tab changed to: " + sourceTabbedPane.getTitleAt(index));        // TODO add your handling code here:
     }//GEN-LAST:event_tabbedPaneStateChanged
 
     /**

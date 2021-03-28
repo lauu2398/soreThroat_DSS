@@ -498,7 +498,6 @@ public class PatientInfoPanel extends javax.swing.JPanel {
 
     private void getDecision(){
         try {
-            System.out.println("Getiting diagnosis");
             FactAddressValue fv = clips.findFact("Patient"); //only one fact actually
             String decisionComputed = (fv.getSlotValue("decision_computed")).toString();
             if(!decisionComputed.equals("TRUE")){
@@ -506,7 +505,6 @@ public class PatientInfoPanel extends javax.swing.JPanel {
                         JOptionPane.ERROR_MESSAGE);
             }
             else{
-                System.out.println("Getting scores");
                 float scoreMono = Float.parseFloat((fv.getSlotValue("score-mono")).toString());
                 float scoreStrep = Float.parseFloat((fv.getSlotValue("score-strep")).toString());
                 float scoreViral= Float.parseFloat((fv.getSlotValue("score-viral")).toString());
