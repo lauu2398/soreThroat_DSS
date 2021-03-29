@@ -288,6 +288,7 @@ public class MainJFrame extends javax.swing.JFrame {
         jTextArea6.setColumns(20);
         jTextArea6.setFont(new java.awt.Font("Tahoma", 0, 13)); // NOI18N
         jTextArea6.setRows(5);
+        jTextArea6.setText("Peritonsillar abscess is a bacterial infection. It develops on the side of the throat, behind or above\nthe tonsils. The infection causes a pocket of pus to form. This type of abscess usually happens\non 1 of the throat of the other. The abscess is caused by bacteria. It is usually a complication of \nanother illness.\n\nRisk factors:\n\t- More common in males and people in ages 20-40 years old.\n\t- Inflammation of the tonsils caused by a bacteria.\n\t- Mononucleosis.\n\t- Smoking.\n\nSymptoms:\n\t- Pain in the throat, around the tonsils.\n\t- Redness and Fever.\n\t- Sore and swollen neck glands.\n\t- Bad breath.\nTreatment:\n\t- Supportive care: Rest and drink plenty of fluids.\n\t- Medications: Oral or IV antibiotics, pain relievers, IV corticosteroids (reduce \n\t  inflammation)\n\t- Aspiration: the abscess may be punctured with a needle to remove fluid.\n\t- Incision and Drainage Procedure: small cut done in the abscess and the fluid is drained\n\t- Tonsillectomy: operation based on removing the affected tonsils.\n\n\t");
         jScrollPane6.setViewportView(jTextArea6);
 
         jLabel12.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/viralPharingitis2.jpg"))); // NOI18N
